@@ -16,13 +16,13 @@
 })();
 
 
-describe("bla bla bla", function() {
+describe("Makes dog hungry", function() {
   
   beforeEach(function(){
     this.dog = new Dog({hungry: true});
   });
 
-	it("should make Sadie hungry", function(){
+	it("should make dog hungry", function(){
   		expect(this.dog.hungry).to.be.true;
 	});
 
