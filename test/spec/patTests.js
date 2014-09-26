@@ -13,17 +13,77 @@
             });
         });
     });
-})();
+});
+
+describe("Creates new playerType", function() {
+
+	beforeEach(function() {
+    	this.playerType = new PlayerType("plove");
+  	});
+
+	it("should make playerType's name plove", function(){
+		expect(this.playerType.name).to.equal("plove");
+	});
+
+	it("should make playerType harder to expire", function(){
+  		expect(this.playerType.hp).to.equal(1500);
+	});
+
+});
+
+describe("Creates new celebrity", function() {
+
+	beforeEach(function() {
+    	this.celebrity = new Celebrity("paris");
+  	});
+
+	it("should make celebrity's name paris", function(){
+		expect(this.celebrity.name).to.equal("paris");
+	});
+
+	it("should make celebrity easier to expire", function(){
+  		expect(this.celebrity.hp).to.equal(1000);
+	});
+
+	it("should make celebrity conceited", function(){
+  		expect(this.celebrity.conceit).to.be.true;
+	});
+
+});
 
 
+describe("Creates new Gordon Gekko", function() {
+
+	beforeEach(function() {
+		this.gordonGekko = new GordonGekko("P");
+	});
+
+	it("should make GG have celebrity hp #", function(){
+  		expect(this.gordonGekko.hp).to.equal(1000);
+  		/*mason.pet(sadie);
+  		expect(sadie.status).toBe('happy');*/
+	});
+
+});
+
+
+
+/*"Initializes Gordon Gekko as a party member"*/
+
+
+
+/*
 describe("Makes dog hungry", function() {
   
-  beforeEach(function(){
-    this.dog = new Dog({hungry: true});
-  });
+  	beforeEach(function(){
+    	this.dog = new Dog({hungry: true});
+  	});
 
 	it("should make dog hungry", function(){
   		expect(this.dog.hungry).to.be.true;
 	});
 
 });
+*/
+
+
