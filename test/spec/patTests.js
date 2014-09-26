@@ -64,6 +64,10 @@ describe("Creates new Gordon Gekko", function() {
   		expect(sadie.status).toBe('happy');*/
 	});
 
+	it("should make GG make it rain", function() {
+		expect(this.gordonGekko.makeItRain).to.not.throw(Error);
+	});
+
 });
 
 
