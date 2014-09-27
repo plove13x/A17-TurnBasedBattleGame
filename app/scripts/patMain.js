@@ -36,7 +36,13 @@ PlayerType.prototype.fight = function() {
 	var damage = this.strength*(Math.floor(Math.random() * 10));
 	console.log(damage);
 	console.log("Attacks enemy.");
-	target.hp = (target.hp - damage);
+
+	if (Math.floor(Math.random() * 100) > this.conceit && Math.floor(Math.random() * 100) > target.conceit) {
+		(alert("You missed you loser!"))
+	}	else {
+			target.hp = (target.hp - damage);
+		}
+
 	console.log(target.hp);
 	if (target.hp <= 0) {
 		target.status = "dead";
@@ -62,7 +68,7 @@ function OfficerFarva (name, propsObject) {
 	this.hp = 1750;
 	this.sp = 25;
 	this.strength = 49;
-	this.conceit = 33;
+	this.conceit = 45;
 	this.status = "confused";
 };
 
@@ -92,7 +98,7 @@ function DerekZoolander (name, propsObject) {
 	this.hp = 800;
 	this.sp = 50;
 	this.strength = 3;
-	this.conceit = 90;
+	this.conceit = 98;
 };
 
 DerekZoolander.prototype = Object.create(PlayerType.prototype);
@@ -105,7 +111,7 @@ function GordonGekko (name, propsObject) {
 	Celebrity.apply(this, arguments);
 	this.sp = 500;
 	this.strength = 20;
-	this.conceit = 95;
+	this.conceit = 85;
 };
 
 GordonGekko.prototype = Object.create(Celebrity.prototype);
@@ -133,7 +139,7 @@ function DonaldTrump (name, propsObject) {
 	this.hp = 1200;
 	this.sp = 400;
 	this.strength = 30;
-	this.conceit = 98;
+	this.conceit = 90;
 };
 
 DonaldTrump.prototype = Object.create(Celebrity.prototype);
@@ -147,7 +153,7 @@ function MikeTyson (name, propsObject) {
 	this.hp = 2500;
 	this.sp = 85;
 	this.strength = 85;
-	this.conceit = 13;
+	this.conceit = 33;
 };
 
 MikeTyson.prototype = Object.create(Celebrity.prototype);
@@ -202,7 +208,13 @@ EnemyType.prototype.fight = function() {
 	var damage = this.strength*(Math.floor(Math.random() * 10));
 	console.log(damage);
 	console.log("Attacks player.");
-	target.hp = (target.hp - damage);
+
+	if (Math.floor(Math.random() * 100) > this.conceit && Math.floor(Math.random() * 100) > target.conceit) {
+		(alert("You missed you loser!"))
+	}	else {
+			target.hp = (target.hp - damage);
+		}
+	
 	console.log(target.hp);
 	if (target.hp <= 0) {
 		target.status = "dead";
@@ -253,7 +265,7 @@ function Jaws (name, propsObject) {
 	this.hp = 500;
 	this.sp = 10;
 	this.strength = 90;
-	this.conceit = 10;
+	this.conceit = 20;
 	this.status = "slow";
 };
 
@@ -268,7 +280,7 @@ function Communist (name, propsObject) {
 	this.hp = 2000;
 	this.sp = 5;
 	this.strength = 40;
-	this.conceit = 1;
+	this.conceit = 13;
 };
 
 Communist.prototype = Object.create(Monster.prototype);
