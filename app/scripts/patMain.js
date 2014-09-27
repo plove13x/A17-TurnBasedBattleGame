@@ -48,6 +48,30 @@ OfficerFarva.prototype.throwLiterOfCola = function() {
 };
 
 
+function KennyPowers (name, propsObject) {
+	PlayerType.apply(this, arguments);
+	this.spendingPower = 60;
+	this.status = "notSober"
+};
+
+KennyPowers.prototype = Object.create(PlayerType.prototype);
+KennyPowers.prototype.throwBeerCan = function() {
+	console.log("Add new Kenny quote here.");
+};
+
+
+function DerekZoolander (name, propsObject) {
+	PlayerType.apply(this, arguments);
+	this.strength = 15;
+	this.conceit = 100;
+};
+
+DerekZoolander.prototype = Object.create(PlayerType.prototype);
+DerekZoolander.prototype.blueSteel = function() {
+	console.log("...");
+};
+
+
 function GordonGekko (name, propsObject) {
 	Celebrity.apply(this, arguments);
 	this.spendingPower = 500;
@@ -73,12 +97,34 @@ NbaBaller.prototype.dunk = function() {
 };
 
 
+function DonaldTrump (name, propsObject) {
+	Celebrity.apply(this, arguments);
+	this.spendingPower = 400;
+};
+
+DonaldTrump.prototype = Object.create(Celebrity.prototype);
+DonaldTrump.prototype.youreFired = function() {
+	console.log("You're Fired.");
+};
+
+
+function MikeTyson (name, propsObject) {
+	Celebrity.apply(this, arguments);
+	this.strength = 90;
+};
+
+MikeTyson.prototype = Object.create(Celebrity.prototype);
+MikeTyson.prototype.biteEarOff = function() {
+	console.log("Bites ear off.");
+};
+
+
 
 // AFTER PLAYER SELECTS HIS PLAYER TYPES FROM INITIAL MENU AND PASSES IN THEIR NAMES, THE FOUR MEMBERS OF HIS PARTY SHOULD BE VARIABLES. EXAMPLE BELOW.
 
-var pMember1 = new OfficerFarva ("Lauren");
-var pMember2 = new PlayerType ("Idiot");
-var pMember3 = new NbaBaller ("Baller");
+var pMember1 = new MikeTyson ("Lauren");
+var pMember2 = new DonaldTrump ("Idiot");
+var pMember3 = new KennyPowers ("Baller");
 var pMember4 = new GordonGekko ("Sterling");
 
 
