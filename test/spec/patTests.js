@@ -45,8 +45,8 @@ describe("Creates new celebrity", function() {
   		expect(this.celebrity.hp).to.equal(1000);
 	});
 
-	it("should make celebrity conceited", function(){
-  		expect(this.celebrity.conceit).to.be.true;
+	it("should make celebrity more conceited", function(){
+  		expect(this.celebrity.conceit).to.equal(83.33333);
 	});
 
 });

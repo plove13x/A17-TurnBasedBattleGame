@@ -12,8 +12,10 @@ function PlayerType (name, propsObject) {
 	if (!propsObject) {
     	propsObject = {};
   	}
-    this.hp = (propsObject.hp === undefined) ? 1500 : propsObject.hp;      
-    this.conceit = (propsObject.conceit === undefined) ? false : propsObject.conceit;
+    this.hp = (propsObject.hp === undefined) ? 1500 : propsObject.hp;  
+    this.spendingPower = (propsObject.spendingPower === undefined) ? 100 : propsObject.spendingPower; 
+    this.strength = (propsObject.strength === undefined) ? 50 : propsObject.strength; 
+    this.conceit = (propsObject.conceit === undefined) ? 50 : propsObject.conceit;
     this.status = (propsObject.status === undefined) ? "normal" : propsObject.status;
 };
 
@@ -25,7 +27,8 @@ PlayerType.prototype.fight = function() {
 function Celebrity (name, propsObject) {
 	PlayerType.apply(this, arguments);
 	this.hp = 1000;
-	this.conceit = true;
+	this.spendingPower = 200;
+	this.conceit = 83.33333;
 };
 
 Celebrity.prototype = Object.create(PlayerType.prototype);
@@ -47,6 +50,8 @@ OfficerFarva.prototype.throwLiterOfCola = function() {
 
 function GordonGekko (name, propsObject) {
 	Celebrity.apply(this, arguments);
+	this.spendingPower = 500;
+	this.conceit = 95;
 };
 
 GordonGekko.prototype = Object.create(Celebrity.prototype);
@@ -55,12 +60,25 @@ GordonGekko.prototype.makeItRain = function() {
 };
 
 
+function NbaBaller (name, propsObject) {
+	Celebrity.apply(this, arguments);
+	this.hp = 1200;
+	this.strength = 75;
+	this.spendingPower = 300;
+};
 
-// AFTER PLAYER SELECTS HIS PLAYER TYPES FROM INITIAL MENU AND PASSES IN THEIR NAMES, THE FOUR MEMBERS OF HIS PARTY SHOULD BE VARIABLES.
+NbaBaller.prototype = Object.create(Celebrity.prototype);
+NbaBaller.prototype.dunk = function() {
+	console.log("And 1");
+};
+
+
+
+// AFTER PLAYER SELECTS HIS PLAYER TYPES FROM INITIAL MENU AND PASSES IN THEIR NAMES, THE FOUR MEMBERS OF HIS PARTY SHOULD BE VARIABLES. EXAMPLE BELOW.
 
 var pMember1 = new OfficerFarva ("Lauren");
 var pMember2 = new PlayerType ("Idiot");
-var pMember3 = new Celebrity ("Baller");
+var pMember3 = new NbaBaller ("Baller");
 var pMember4 = new GordonGekko ("Sterling");
 
 
