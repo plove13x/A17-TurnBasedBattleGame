@@ -19,8 +19,29 @@ function PlayerType (name, propsObject) {
     this.status = (propsObject.status === undefined) ? "normal" : propsObject.status;
 };
 
+// OBVIOUSLY DOWN THE ROAD THIS WILL NEED TO BE CHANGED AS THE # OF ENEMIES MAY NOT BE 4. WOULD ALSO BE COOL FOR THE USER TO CHOOSE WHICH ENEMY TO TARGET.
 PlayerType.prototype.fight = function() {
-	console.log("I'm using my fists if I don't have a weapon.");
+	var target = Math.floor(Math.random() * 100);
+	console.log(target);
+	if (target < 25) {
+		target = enemy1;
+		}	else if (25 < target && target < 50) {
+			target = enemy2;
+			}	else if (50 < target && target < 75) {
+				target = enemy3;
+				}	else {
+				target = enemy4;
+	}
+	console.log(target);
+	var damage = this.strength*(Math.floor(Math.random() * 10));
+	console.log(damage);
+	console.log("Attacks enemy.");
+	target.hp = (target.hp - damage);
+	console.log(target.hp);
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+	}
 };
 
 
@@ -169,7 +190,15 @@ EnemyType.prototype.fight = function() {
 				target = pMember4;
 	}
 	console.log(target);
+	var damage = this.strength*(Math.floor(Math.random() * 10));
+	console.log(damage);
 	console.log("Attacks player.");
+	target.hp = (target.hp - damage);
+	console.log(target.hp);
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+	}
 };
 
 
