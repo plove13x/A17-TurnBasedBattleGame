@@ -1,11 +1,11 @@
 //This is Pat's personal JavaScript file (to help us keep organized and isolated, at least at first while working out a bunch of kinks).
 //It's probably best if you guys create jay.js, bigballahs.js, etc. for now instead of us all colliding in main.js.
 
+
 'use strict';
 
 
 // All player types in the game are based off of either the default "PlayerType" constructor or the "Celebrity" constructor.
-
 
 function PlayerType (name, propsObject) {
   	this.name = name;
@@ -13,21 +13,21 @@ function PlayerType (name, propsObject) {
     	propsObject = {};
   	}
     this.hp = (propsObject.hp === undefined) ? 1500 : propsObject.hp;  
-    this.spendingPower = (propsObject.spendingPower === undefined) ? 100 : propsObject.spendingPower; 
+    this.sp = (propsObject.sp === undefined) ? 100 : propsObject.sp; 
     this.strength = (propsObject.strength === undefined) ? 50 : propsObject.strength; 
     this.conceit = (propsObject.conceit === undefined) ? 50 : propsObject.conceit;
     this.status = (propsObject.status === undefined) ? "normal" : propsObject.status;
 };
 
 PlayerType.prototype.fight = function() {
-	console.log("I can put shit on the pt.");
+	console.log("I'm using my fists if I don't have a weapon.");
 };
 
 
 function Celebrity (name, propsObject) {
 	PlayerType.apply(this, arguments);
 	this.hp = 1000;
-	this.spendingPower = 200;
+	this.sp = 200;
 	this.conceit = 83.33333;
 };
 
@@ -38,7 +38,10 @@ Celebrity.prototype = Object.create(PlayerType.prototype);
 
 function OfficerFarva (name, propsObject) {
 	PlayerType.apply(this, arguments);
-	this.hp = 2000;
+	this.hp = 1750;
+	this.sp = 25;
+	this.strength = 49;
+	this.conceit = 33;
 	this.status = "confused";
 };
 
@@ -50,7 +53,7 @@ OfficerFarva.prototype.throwLiterOfCola = function() {
 
 function KennyPowers (name, propsObject) {
 	PlayerType.apply(this, arguments);
-	this.spendingPower = 60;
+	this.sp = 60;
 	this.status = "notSober"
 };
 
@@ -62,8 +65,8 @@ KennyPowers.prototype.throwBeerCan = function() {
 
 function DerekZoolander (name, propsObject) {
 	PlayerType.apply(this, arguments);
-	this.strength = 15;
-	this.conceit = 100;
+	this.strength = 3;
+	this.conceit = 90;
 };
 
 DerekZoolander.prototype = Object.create(PlayerType.prototype);
@@ -74,7 +77,8 @@ DerekZoolander.prototype.blueSteel = function() {
 
 function GordonGekko (name, propsObject) {
 	Celebrity.apply(this, arguments);
-	this.spendingPower = 500;
+	this.sp = 500;
+	this.strength = 20;
 	this.conceit = 95;
 };
 
@@ -86,9 +90,9 @@ GordonGekko.prototype.makeItRain = function() {
 
 function NbaBaller (name, propsObject) {
 	Celebrity.apply(this, arguments);
-	this.hp = 1200;
-	this.strength = 75;
-	this.spendingPower = 300;
+	this.hp = 1300;
+	this.sp = 250;
+	this.strength = 75;	
 };
 
 NbaBaller.prototype = Object.create(Celebrity.prototype);
@@ -99,7 +103,7 @@ NbaBaller.prototype.dunk = function() {
 
 function DonaldTrump (name, propsObject) {
 	Celebrity.apply(this, arguments);
-	this.spendingPower = 400;
+	this.sp = 400;
 };
 
 DonaldTrump.prototype = Object.create(Celebrity.prototype);
@@ -111,8 +115,8 @@ DonaldTrump.prototype.youreFired = function() {
 function MikeTyson (name, propsObject) {
 	Celebrity.apply(this, arguments);
 	this.hp = 2500;
-	this.spendingPower = 40;
-	this.strength = 90;
+	this.sp = 85;
+	this.strength = 85;
 	this.conceit = 13;
 };
 
@@ -132,6 +136,7 @@ var pMember4 = new GordonGekko ("Sterling");
 
 
 
+
 // ENEMY CONSTRUCTORS
 
 function EnemyType (name, propsObject) {
@@ -145,13 +150,14 @@ function EnemyType (name, propsObject) {
     	propsObject = {};
   	}
     this.hp = (propsObject.hp === undefined) ? 1500 : propsObject.hp;  
-    this.spendingPower = (propsObject.spendingPower === undefined) ? 100 : propsObject.spendingPower; 
+    this.sp = (propsObject.sp === undefined) ? 100 : propsObject.sp; 
     this.strength = (propsObject.strength === undefined) ? 50 : propsObject.strength; 
     this.conceit = (propsObject.conceit === undefined) ? 50 : propsObject.conceit;
     this.status = (propsObject.status === undefined) ? "normal" : propsObject.status;
 };
 
 EnemyType.prototype.fight = function() {
+	var target;
 	console.log("Attacks player.");
 };
 
@@ -159,7 +165,7 @@ EnemyType.prototype.fight = function() {
 function EvilCelebrity (name, propsObject) {
 	EnemyType.apply(this, arguments);
 	this.hp = 1000;
-	this.spendingPower = 200;
+	this.sp = 200;
 	this.conceit = 83.33333;
 };
 
@@ -169,11 +175,13 @@ EvilCelebrity.prototype = Object.create(EnemyType.prototype);
 function Monster (name, propsObject) {
 	EnemyType.apply(this, arguments);
 	this.hp = 2500;
-	this.spendingPower = 50;
+	this.sp = 50;
 	this.conceit = 25;
 };
 
 Monster.prototype = Object.create(EnemyType.prototype);
+
+
 
 
 function AnnaNicoleSmith (name, propsObject) {
@@ -189,6 +197,7 @@ AnnaNicoleSmith.prototype.stealMoney = function() {
 
 function Jaws (name, propsObject) {
 	Monster.apply(this, arguments);
+	this.hp = 500;
 	this.status = "slow";
 };
 
@@ -200,7 +209,7 @@ Jaws.prototype.eat = function() {
 
 function Communist (name, propsObject) {
 	Monster.apply(this, arguments);
-	this.hp = 1500;
+	this.hp = 2000;
 };
 
 Communist.prototype = Object.create(Monster.prototype);
@@ -217,6 +226,14 @@ var enemy2 = new Jaws ();
 var enemy3 = new Jaws ();
 var enemy4 = new Communist ();
 var enemy5 = new AnnaNicoleSmith ();
+
+
+
+
+// DAMAGE ALGORITHMS
+
+
+
 
 
 

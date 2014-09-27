@@ -77,7 +77,11 @@ describe("Creates new Jaws", function() {
 		this.jaws = new Jaws("P");
 	});
 
-	it("should make Jaws have status of slow", function(){
+	it("should make Jaws easier have low HP", function() {
+		expect(this.jaws.hp).to.equal(500);
+	});
+
+	it("should make Jaws have status of slow", function() {
   		expect(this.jaws.status).to.equal("slow");
   		/*mason.pet(sadie);
   		expect(sadie.status).toBe('happy');*/
