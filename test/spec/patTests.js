@@ -87,6 +87,10 @@ describe("Creates new Jaws", function() {
 		expect(this.jaws.eat).to.not.throw(Error);
 	});
 
+	it("should make Jaws have the name P assuming this is a multiplayer game", function() {
+		expect(this.jaws.name).to.equal("P");
+	});
+
 });
 
 /*"Initializes Gordon Gekko as a party member"*/

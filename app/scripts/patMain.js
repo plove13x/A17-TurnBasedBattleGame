@@ -137,6 +137,9 @@ var pMember4 = new GordonGekko ("Sterling");
 function EnemyType (name, propsObject) {
 	if (!name) {
 		this.name = "N/A";
+	} 
+	else {
+		this.name = name;
 	}
 	if (!propsObject) {
     	propsObject = {};
@@ -195,13 +198,25 @@ Jaws.prototype.eat = function() {
 };
 
 
+function Communist (name, propsObject) {
+	Monster.apply(this, arguments);
+	this.hp = 1500;
+};
 
-// ENEMIES WON'T HAVE NAMES AS AN INPUT UNLESS THEY ARE BEING CONTROLLED BY A HUMAN IN MULTI-PLAYER MODE
+Communist.prototype = Object.create(Monster.prototype);
+Communist.prototype.spreadTheWealth = function() {
+	console.log("Everyone in your party now has equal spending power. Conceit may shrink as well.")
+};
+
+
+
+// ENEMIES WON'T HAVE NAMES AS AN INPUT UNLESS THEY ARE BEING INITIATED AS PARTY MEMBERS BY A HUMAN IN MULTI-PLAYER MODE. EXAMPLE BELOW.
 
 var enemy1 = new AnnaNicoleSmith ();
 var enemy2 = new Jaws ();
 var enemy3 = new Jaws ();
-
+var enemy4 = new Communist ();
+var enemy5 = new AnnaNicoleSmith ();
 
 
 
