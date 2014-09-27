@@ -157,7 +157,18 @@ function EnemyType (name, propsObject) {
 };
 
 EnemyType.prototype.fight = function() {
-	var target;
+	var target = Math.floor(Math.random() * 100);
+	console.log(target);
+	if (target < 25) {
+		target = pMember1;
+		}	else if (25 < target && target < 50) {
+			target = pMember2;
+			}	else if (50 < target && target < 75) {
+				target = pMember3;
+				}	else {
+				target = pMember4;
+	}
+	console.log(target);
 	console.log("Attacks player.");
 };
 
