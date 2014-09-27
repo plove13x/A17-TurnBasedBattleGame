@@ -71,6 +71,23 @@ describe("Creates new Gordon Gekko", function() {
 });
 
 
+describe("Creates new Jaws", function() {
+
+	beforeEach(function() {
+		this.jaws = new Jaws("P");
+	});
+
+	it("should make Jaws have status of slow", function(){
+  		expect(this.jaws.status).to.equal("slow");
+  		/*mason.pet(sadie);
+  		expect(sadie.status).toBe('happy');*/
+	});
+
+	it("should make Jaws eat the whole damn thing", function() {
+		expect(this.jaws.eat).to.not.throw(Error);
+	});
+
+});
 
 /*"Initializes Gordon Gekko as a party member"*/
 

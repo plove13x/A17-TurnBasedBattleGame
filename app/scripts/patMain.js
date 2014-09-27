@@ -110,7 +110,10 @@ DonaldTrump.prototype.youreFired = function() {
 
 function MikeTyson (name, propsObject) {
 	Celebrity.apply(this, arguments);
+	this.hp = 2500;
+	this.spendingPower = 40;
 	this.strength = 90;
+	this.conceit = 13;
 };
 
 MikeTyson.prototype = Object.create(Celebrity.prototype);
@@ -126,6 +129,78 @@ var pMember1 = new MikeTyson ("Lauren");
 var pMember2 = new DonaldTrump ("Idiot");
 var pMember3 = new KennyPowers ("Baller");
 var pMember4 = new GordonGekko ("Sterling");
+
+
+
+// ENEMY CONSTRUCTORS
+
+function EnemyType (name, propsObject) {
+	if (!name) {
+		this.name = "N/A";
+	}
+	if (!propsObject) {
+    	propsObject = {};
+  	}
+    this.hp = (propsObject.hp === undefined) ? 1500 : propsObject.hp;  
+    this.spendingPower = (propsObject.spendingPower === undefined) ? 100 : propsObject.spendingPower; 
+    this.strength = (propsObject.strength === undefined) ? 50 : propsObject.strength; 
+    this.conceit = (propsObject.conceit === undefined) ? 50 : propsObject.conceit;
+    this.status = (propsObject.status === undefined) ? "normal" : propsObject.status;
+};
+
+EnemyType.prototype.fight = function() {
+	console.log("Attacks player.");
+};
+
+
+function EvilCelebrity (name, propsObject) {
+	EnemyType.apply(this, arguments);
+	this.hp = 1000;
+	this.spendingPower = 200;
+	this.conceit = 83.33333;
+};
+
+EvilCelebrity.prototype = Object.create(EnemyType.prototype);
+
+
+function Monster (name, propsObject) {
+	EnemyType.apply(this, arguments);
+	this.hp = 2500;
+	this.spendingPower = 50;
+	this.conceit = 25;
+};
+
+Monster.prototype = Object.create(EnemyType.prototype);
+
+
+function AnnaNicoleSmith (name, propsObject) {
+	EvilCelebrity.apply(this, arguments);
+	this.status = "confused";
+};
+
+AnnaNicoleSmith.prototype = Object.create(EvilCelebrity.prototype);
+AnnaNicoleSmith.prototype.stealMoney = function() {
+	console.log("I love you.");
+};
+
+
+function Jaws (name, propsObject) {
+	Monster.apply(this, arguments);
+	this.status = "slow";
+};
+
+Jaws.prototype = Object.create(Monster.prototype);
+Jaws.prototype.eat = function() {
+	console.log("I sunk your battleship.")
+};
+
+
+
+// ENEMIES WON'T HAVE NAMES AS AN INPUT UNLESS THEY ARE BEING CONTROLLED BY A HUMAN IN MULTI-PLAYER MODE
+
+var enemy1 = new AnnaNicoleSmith ();
+var enemy2 = new Jaws ();
+var enemy3 = new Jaws ();
 
 
 
