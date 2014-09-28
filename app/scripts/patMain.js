@@ -19,8 +19,35 @@ function PlayerType (name, propsObject) {
     this.status = (propsObject.status === undefined) ? "normal" : propsObject.status;
 };
 
+// OBVIOUSLY DOWN THE ROAD THIS WILL NEED TO BE CHANGED AS THE # OF ENEMIES MAY NOT BE 4. WOULD ALSO BE COOL FOR THE USER TO CHOOSE WHICH ENEMY TO TARGET.
 PlayerType.prototype.fight = function() {
-	console.log("I'm using my fists if I don't have a weapon.");
+	var target = Math.floor(Math.random() * 100);
+	console.log(target);
+	if (target < 25) {
+		target = enemy1;
+		}	else if (25 < target && target < 50) {
+			target = enemy2;
+			}	else if (50 < target && target < 75) {
+				target = enemy3;
+				}	else {
+				target = enemy4;
+	}
+	console.log(target);
+	var damage = this.strength*(Math.floor(Math.random() * 10));
+	console.log(damage);
+	console.log("Attacks enemy.");
+
+	if (Math.floor(Math.random() * 100) > this.conceit && Math.floor(Math.random() * 100) > target.conceit) {
+		(alert("You missed you loser!"))
+	}	else {
+			target.hp = (target.hp - damage);
+		}
+
+	console.log(target.hp);
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+	}
 };
 
 
@@ -41,7 +68,7 @@ function OfficerFarva (name, propsObject) {
 	this.hp = 1750;
 	this.sp = 25;
 	this.strength = 49;
-	this.conceit = 33;
+	this.conceit = 45;
 	this.status = "confused";
 };
 
@@ -53,7 +80,10 @@ OfficerFarva.prototype.throwLiterOfCola = function() {
 
 function KennyPowers (name, propsObject) {
 	PlayerType.apply(this, arguments);
+	this.hp = 666;
 	this.sp = 60;
+	this.strength = 60;
+	this.conceit = 69;
 	this.status = "notSober"
 };
 
@@ -65,8 +95,10 @@ KennyPowers.prototype.throwBeerCan = function() {
 
 function DerekZoolander (name, propsObject) {
 	PlayerType.apply(this, arguments);
+	this.hp = 800;
+	this.sp = 50;
 	this.strength = 3;
-	this.conceit = 90;
+	this.conceit = 98;
 };
 
 DerekZoolander.prototype = Object.create(PlayerType.prototype);
@@ -79,7 +111,7 @@ function GordonGekko (name, propsObject) {
 	Celebrity.apply(this, arguments);
 	this.sp = 500;
 	this.strength = 20;
-	this.conceit = 95;
+	this.conceit = 85;
 };
 
 GordonGekko.prototype = Object.create(Celebrity.prototype);
@@ -93,6 +125,7 @@ function NbaBaller (name, propsObject) {
 	this.hp = 1300;
 	this.sp = 250;
 	this.strength = 75;	
+	this.conceit = 80;
 };
 
 NbaBaller.prototype = Object.create(Celebrity.prototype);
@@ -103,7 +136,10 @@ NbaBaller.prototype.dunk = function() {
 
 function DonaldTrump (name, propsObject) {
 	Celebrity.apply(this, arguments);
+	this.hp = 1200;
 	this.sp = 400;
+	this.strength = 30;
+	this.conceit = 90;
 };
 
 DonaldTrump.prototype = Object.create(Celebrity.prototype);
@@ -117,7 +153,7 @@ function MikeTyson (name, propsObject) {
 	this.hp = 2500;
 	this.sp = 85;
 	this.strength = 85;
-	this.conceit = 13;
+	this.conceit = 33;
 };
 
 MikeTyson.prototype = Object.create(Celebrity.prototype);
@@ -169,7 +205,21 @@ EnemyType.prototype.fight = function() {
 				target = pMember4;
 	}
 	console.log(target);
+	var damage = this.strength*(Math.floor(Math.random() * 10));
+	console.log(damage);
 	console.log("Attacks player.");
+
+	if (Math.floor(Math.random() * 100) > this.conceit && Math.floor(Math.random() * 100) > target.conceit) {
+		(alert("You missed you loser!"))
+	}	else {
+			target.hp = (target.hp - damage);
+		}
+	
+	console.log(target.hp);
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+	}
 };
 
 
@@ -197,6 +247,10 @@ Monster.prototype = Object.create(EnemyType.prototype);
 
 function AnnaNicoleSmith (name, propsObject) {
 	EvilCelebrity.apply(this, arguments);
+	this.hp = 100;
+	this.sp = 200;
+	this.strength = 5;
+	this.conceit = 99;
 	this.status = "confused";
 };
 
@@ -209,6 +263,9 @@ AnnaNicoleSmith.prototype.stealMoney = function() {
 function Jaws (name, propsObject) {
 	Monster.apply(this, arguments);
 	this.hp = 500;
+	this.sp = 10;
+	this.strength = 90;
+	this.conceit = 20;
 	this.status = "slow";
 };
 
@@ -221,6 +278,9 @@ Jaws.prototype.eat = function() {
 function Communist (name, propsObject) {
 	Monster.apply(this, arguments);
 	this.hp = 2000;
+	this.sp = 5;
+	this.strength = 40;
+	this.conceit = 13;
 };
 
 Communist.prototype = Object.create(Monster.prototype);
