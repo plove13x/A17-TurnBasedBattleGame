@@ -403,6 +403,10 @@ $(".player_stats").append( "<p>" + pMember4.name + pMember4.hp + "</p>" );
 
 
 
+event.preventDefault();
+});							/*END .pS FUNCTION*/
+
+
 // THE ENEMY GENERATION STUFF BELOW MAY NEED TO BE PUT IN ITS OWN SEPARATE FUNCTION FOR CONSECUTIVE BATTLES. RIGHT NOW IT'S ALL ONE BIG FUNCTION!!!!
 
 
@@ -482,7 +486,7 @@ if (numEnemies >= 5) {
 			}
 }
 
-if (numEnemies = 6) {
+if (numEnemies === 6) {
 	var eGen = Math.floor(Math.random() * 100);
     if (eGen < 50) {
 		var enemy6 = new AnnaNicoleSmith ();
@@ -524,22 +528,22 @@ if (enemy6) { $(".enemy_stats").append( "<p>" + enemy6.kat + "</p>" );}
 
 
 
-event.preventDefault();
-});							/*END .pS FUNCTION*/
-
-
 
 
 // SECOND LAYER OF COMMAND MENUS
 
 $(".player_action_selector button").on( "click", function() {
 		pMember1.fight();
-	/*
+		
+});
+
+
+
+/*
 	if (enemyTarget = 1) {
 		pMember1.fight("enemy"+enemyTarget);
 	};
 	*/
-});
 
 
 
