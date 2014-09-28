@@ -297,41 +297,113 @@ Jaws.prototype.eat = function() {
 
 // SELECT YOUR PARTY MEMBERS.
 
-/*
 
-<select id="characterSelect">
-    <option value="1" selected="selected">Officer Farva</option>
-    <option value="2">Kenny Powers</option>
-    <option value="3">Derek Zoolander</option>
-    <option value="4">Gordon Gekko</option>
-    <option value="5">NBA Baller</option>
-    <option value="6">Donald Trump</option>
-    <option value="7">Mike Tyson</option>
-</select>
-
-+ AN INPUT BOX FOR THE CHARACTER NAME
+$(".pS").submit(function() {
 
 
+// TOP-RIGHT PARTY MEMBER IMAGES (BUT FOR NOW JUST NAMES...)
 
-
-var pMemberChoice = document.getElementById("characterSelect").value;
-	if (pMemberChoice = "1") {
-		pMember1 = new OfficerFarva ();
-	} else if (pMemberChoice = "2") {
-		pMember1 = new KennyPowers ();
-	} else if (pMemberChoice = "3") {
-		pMember1 = new DerekZoolander ();
-	} else if (pMemberChoice = "4") {
-		pMember1 = new GordonGekko ();
-	} else if (pMemberChoice = "5") {
-		pMember1 = new NbaBaller ();
-	} else if (pMemberChoice = "6") {
-		pMember1 = new DonaldTrump ();
+var n = document.getElementById("p1Name").value;							/*COULD BE A PROMPT INSTEAD FOR THE CHARACTER NAMES*/
+var pMemberChoice1 = document.getElementById("pMember1Select").value;
+	if (pMemberChoice1 === "7") {
+		pMember1 = new MikeTyson (n);
+	} else if (pMemberChoice1 === "2") {
+		pMember1 = new KennyPowers (n);
+	} else if (pMemberChoice1 === "3") {
+		pMember1 = new DerekZoolander (n);
+	} else if (pMemberChoice1 === "4") {
+		pMember1 = new GordonGekko (n);
+	} else if (pMemberChoice1 === "5") {
+		pMember1 = new NbaBaller (n);
+	} else if (pMemberChoice1 === "6") {
+		pMember1 = new DonaldTrump (n);
 	} else {
-		pMember1 = new MikeTyson ();
+		pMember1 = new OfficerFarva (n);
 	}
 
-*/
+
+n = document.getElementById("p2Name").value;
+var pMemberChoice2 = document.getElementById("pMember2Select").value;
+	if (pMemberChoice2 === "7") {
+		pMember2 = new MikeTyson (n);
+	} else if (pMemberChoice2 === "2") {
+		pMember2 = new KennyPowers (n);
+	} else if (pMemberChoice2 === "3") {
+		pMember2 = new DerekZoolander (n);
+	} else if (pMemberChoice2 === "4") {
+		pMember2 = new GordonGekko (n);
+	} else if (pMemberChoice2 === "5") {
+		pMember2 = new NbaBaller (n);
+	} else if (pMemberChoice2 === "6") {
+		pMember2 = new DonaldTrump (n);
+	} else {
+		pMember2 = new OfficerFarva (n);
+	}
+
+
+n = document.getElementById("p3Name").value;
+var pMemberChoice3 = document.getElementById("pMember3Select").value;
+	if (pMemberChoice3 === "7") {
+		pMember3 = new MikeTyson (n);
+	} else if (pMemberChoice3 === "2") {
+		pMember3 = new KennyPowers (n);
+	} else if (pMemberChoice3 === "3") {
+		pMember3 = new DerekZoolander (n);
+	} else if (pMemberChoice3 === "4") {
+		pMember3 = new GordonGekko (n);
+	} else if (pMemberChoice3 === "5") {
+		pMember3 = new NbaBaller (n);
+	} else if (pMemberChoice3 === "6") {
+		pMember3 = new DonaldTrump (n);
+	} else {
+		pMember3 = new OfficerFarva (n);
+	}
+
+
+n = document.getElementById("p4Name").value;
+var pMemberChoice4 = document.getElementById("pMember4Select").value;
+	if (pMemberChoice4 === "7") {
+		pMember4 = new MikeTyson (n);
+	} else if (pMemberChoice4 === "2") {
+		pMember4 = new KennyPowers (n);
+	} else if (pMemberChoice4 === "3") {
+		pMember4 = new DerekZoolander (n);
+	} else if (pMemberChoice4 === "4") {
+		pMember4 = new GordonGekko (n);
+	} else if (pMemberChoice4 === "5") {
+		pMember4 = new NbaBaller (n);
+	} else if (pMemberChoice4 === "6") {
+		pMember4 = new DonaldTrump (n);
+	} else {
+		pMember4 = new OfficerFarva (n);
+	}
+
+
+$(".player_area").empty();
+
+
+$(".player_area").append( "<p>" + pMember1.name + "</p>" );
+$(".player_area").append( "<p>" + pMember2.name + "</p>" );
+$(".player_area").append( "<p>" + pMember3.name + "</p>" );
+$(".player_area").append( "<p>" + pMember4.name + "</p>" );
+
+
+
+
+// BOTTOM-RIGHT CHARACTER INFO
+
+// var $p1hp = pMember1.hp;		COULD USE A VARIABLE IF NEED BE
+$(".player_stats").empty();
+// $(".player_stats").html = "";
+$(".player_stats").append( "<p>" + pMember1.name + pMember1.hp + "</p>" );
+$(".player_stats").append( "<p>" + pMember2.name + pMember2.hp + "</p>" );
+$(".player_stats").append( "<p>" + pMember3.name + pMember3.hp + "</p>" );
+$(".player_stats").append( "<p>" + pMember4.name + pMember4.hp + "</p>" );
+
+
+
+
+// THE ENEMY GENERATION STUFF BELOW MAY NEED TO BE PUT IN ITS OWN SEPARATE FUNCTION FOR CONSECUTIVE BATTLES. RIGHT NOW IT'S ALL ONE BIG FUNCTION!!!!
 
 
 
@@ -424,53 +496,6 @@ if (numEnemies = 6) {
 
 
 
-// function bGen(numEnemies) {
-// 	for (i=1; i<=numEnemies; i++) {									TRY #1: THIS LINE GENERATES THIS ERROR AND NOT SURE KNOW WHY: Uncaught ReferenceError: i is not defined
-// 		var counter = i;
-// 		var eGen = Math.floor(Math.random() * 100);
-//     		if (eGen < 50) {
-// 				window["enemy"+counter] = new AnnaNicoleSmith ();
-// 			}	else if (50 < eGen && eGen < 75) {
-// 					window["enemy"+counter] = new Communist ();
-// 				}	else {
-// 						window["enemy"+counter] = new Jaws ();
-// 					}
-// 	}
-// };
-
-
-// bGen(numEnemies);
-
-
-
-
-// var enemyArray = [];
-
-// for (i = 0; i < numEnemies; i++) { 					TRY #2: THIS LINE ALSO GENERATES THIS ERROR AND NOT SURE KNOW WHY: Uncaught ReferenceError: i is not defined 
-//     var eGen = Math.floor(Math.random() * 100);
-//     if (eGen < 50) {
-// 		enemyArray[i] = new AnnaNicoleSmith ();
-// 	}	else if (50 < eGen && eGen < 75) {
-// 			enemyArray[i] = new Communist ();
-// 		}	else {
-// 				enemyArray[i] = new Jaws ();
-// 			}
-
-// 	_.each(enemyArray[x], function() {
-// 		window["enemy" + (x+1)] = enemyArray[x];
-// 	});
-// } 
-
-
-// if (enemyArray[1]) {									TRY #3
-// 		var enemy2 = enemyArray[1];
-// }
-
-
-
-
-
-
 // TOP-LEFT ENEMY IMAGES (BUT FOR NOW JUST NAMES...)
 
 $(".enemies_area").empty();
@@ -481,17 +506,6 @@ if (enemy3) { $(".enemies_area").append( "<p>" + enemy3.kat + "</p>" );}
 if (enemy4) { $(".enemies_area").append( "<p>" + enemy4.kat + "</p>" );}
 if (enemy5) { $(".enemies_area").append( "<p>" + enemy5.kat + "</p>" );}
 if (enemy6) { $(".enemies_area").append( "<p>" + enemy6.kat + "</p>" );}
-
-
-
-
-// TOP-RIGHT PARTY MEMBER IMAGES (BUT FOR NOW JUST NAMES...)
-$(".player_area").empty();
-$(".player_area").append( "<p>" + pMember1.name + "</p>" );
-$(".player_area").append( "<p>" + pMember2.name + "</p>" );
-$(".player_area").append( "<p>" + pMember3.name + "</p>" );
-$(".player_area").append( "<p>" + pMember4.name + "</p>" );
-
 
 
 
@@ -510,6 +524,12 @@ if (enemy6) { $(".enemy_stats").append( "<p>" + enemy6.kat + "</p>" );}
 
 
 
+event.preventDefault();
+});							/*END .pS FUNCTION*/
+
+
+
+
 // SECOND LAYER OF COMMAND MENUS
 
 $(".player_action_selector button").on( "click", function() {
@@ -521,18 +541,6 @@ $(".player_action_selector button").on( "click", function() {
 	*/
 });
 
-
-
-
-// BOTTOM-RIGHT CHARACTER INFO
-
-// var $p1hp = pMember1.hp;		COULD USE A VARIABLE IF NEED BE
-$(".player_stats").empty();
-// $(".player_stats").html = "";
-$(".player_stats").append( "<p>" + pMember1.name + pMember1.hp + "</p>" );
-$(".player_stats").append( "<p>" + pMember2.name + pMember2.hp + "</p>" );
-$(".player_stats").append( "<p>" + pMember3.name + pMember3.hp + "</p>" );
-$(".player_stats").append( "<p>" + pMember4.name + pMember4.hp + "</p>" );
 
 
 
