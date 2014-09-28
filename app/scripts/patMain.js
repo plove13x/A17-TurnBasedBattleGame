@@ -248,6 +248,7 @@ Monster.prototype = Object.create(EnemyType.prototype);
 
 function AnnaNicoleSmith (name, propsObject) {
 	EvilCelebrity.apply(this, arguments);
+	this.kat = "Anna Nicole Smith";
 	this.hp = 100;
 	this.sp = 200;
 	this.strength = 5;
@@ -263,6 +264,7 @@ AnnaNicoleSmith.prototype.stealMoney = function() {
 
 function Communist (name, propsObject) {
 	Monster.apply(this, arguments);
+	this.kat = "Communist";
 	this.hp = 2000;
 	this.sp = 5;
 	this.strength = 40;
@@ -277,6 +279,7 @@ Communist.prototype.spreadTheWealth = function() {
 
 function Jaws (name, propsObject) {
 	Monster.apply(this, arguments);
+	this.kat = "Jaws";
 	this.hp = 500;
 	this.sp = 10;
 	this.strength = 90;
@@ -466,6 +469,47 @@ if (numEnemies = 6) {
 
 
 
+
+
+// TOP-LEFT ENEMY IMAGES (BUT FOR NOW JUST NAMES...)
+
+$(".enemies_area").empty();
+// $(".enemies_area").html = "";
+if (enemy1) { $(".enemies_area").append( "<p>" + enemy1.kat + "</p>" );}
+if (enemy2) { $(".enemies_area").append( "<p>" + enemy2.kat + "</p>" );}
+if (enemy3) { $(".enemies_area").append( "<p>" + enemy3.kat + "</p>" );}
+if (enemy4) { $(".enemies_area").append( "<p>" + enemy4.kat + "</p>" );}
+if (enemy5) { $(".enemies_area").append( "<p>" + enemy5.kat + "</p>" );}
+if (enemy6) { $(".enemies_area").append( "<p>" + enemy6.kat + "</p>" );}
+
+
+
+
+// TOP-RIGHT PARTY MEMBER IMAGES (BUT FOR NOW JUST NAMES...)
+$(".player_area").empty();
+$(".player_area").append( "<p>" + pMember1.name + "</p>" );
+$(".player_area").append( "<p>" + pMember2.name + "</p>" );
+$(".player_area").append( "<p>" + pMember3.name + "</p>" );
+$(".player_area").append( "<p>" + pMember4.name + "</p>" );
+
+
+
+
+
+// BOTTOM-LEFT ENEMY NAMES
+
+// var $e1kat = enemy1.kat;		COULD USE A VARIABLE IF NEED BE
+$(".enemy_stats").empty();
+if (enemy1) { $(".enemy_stats").append( "<p>" + enemy1.kat + "</p>" );}
+if (enemy2) { $(".enemy_stats").append( "<p>" + enemy2.kat + "</p>" );}
+if (enemy3) { $(".enemy_stats").append( "<p>" + enemy3.kat + "</p>" );}
+if (enemy4) { $(".enemy_stats").append( "<p>" + enemy4.kat + "</p>" );}
+if (enemy5) { $(".enemy_stats").append( "<p>" + enemy5.kat + "</p>" );}
+if (enemy6) { $(".enemy_stats").append( "<p>" + enemy6.kat + "</p>" );}
+
+
+
+
 // SECOND LAYER OF COMMAND MENUS
 
 $(".player_action_selector button").on( "click", function() {
@@ -478,6 +522,17 @@ $(".player_action_selector button").on( "click", function() {
 });
 
 
+
+
+// BOTTOM-RIGHT CHARACTER INFO
+
+// var $p1hp = pMember1.hp;		COULD USE A VARIABLE IF NEED BE
+$(".player_stats").empty();
+// $(".player_stats").html = "";
+$(".player_stats").append( "<p>" + pMember1.name + pMember1.hp + "</p>" );
+$(".player_stats").append( "<p>" + pMember2.name + pMember2.hp + "</p>" );
+$(".player_stats").append( "<p>" + pMember3.name + pMember3.hp + "</p>" );
+$(".player_stats").append( "<p>" + pMember4.name + pMember4.hp + "</p>" );
 
 
 
