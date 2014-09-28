@@ -1,3 +1,6 @@
+console.log("This is our project biatch.");
+
+
 //This is Pat's personal JavaScript file (to help us keep organized and isolated, at least at first while working out a bunch of kinks).
 //It's probably best if you guys create jay.js, bigballahs.js, etc. for now instead of us all colliding in main.js.
 
@@ -21,8 +24,7 @@ function PlayerType (name, propsObject) {
 
 // OBVIOUSLY DOWN THE ROAD THIS WILL NEED TO BE CHANGED AS THE # OF ENEMIES MAY NOT BE 4. WOULD ALSO BE COOL FOR THE USER TO CHOOSE WHICH ENEMY TO TARGET.
 PlayerType.prototype.fight = function() {
-	var target = window["enemy" + prompt("Which enemy do you want to attack?\nPlease enter a # from 1-" + numEnemies + ".")];
-	/*var target = Math.floor(Math.random() * 100);
+	var target = Math.floor(Math.random() * 100);
 	console.log(target);
 	if (target < 25) {
 		target = enemy1;
@@ -32,7 +34,7 @@ PlayerType.prototype.fight = function() {
 				target = enemy3;
 				}	else {
 				target = enemy4;
-	}*/
+	}
 	console.log(target);
 	var damage = this.strength*(Math.floor(Math.random() * 10));
 	console.log(damage);
@@ -166,7 +168,7 @@ MikeTyson.prototype.biteEarOff = function() {
 
 // AFTER PLAYER SELECTS HIS PLAYER TYPES FROM INITIAL MENU AND PASSES IN THEIR NAMES, THE FOUR MEMBERS OF HIS PARTY SHOULD BE VARIABLES. EXAMPLE BELOW.
 
-var pMember1 = new KennyPowers ("Lauren");
+var pMember1 = new MikeTyson ("Lauren");
 var pMember2 = new DonaldTrump ("Idiot");
 var pMember3 = new KennyPowers ("Baller");
 var pMember4 = new GordonGekko ("Sterling");
@@ -293,8 +295,6 @@ Communist.prototype.spreadTheWealth = function() {
 
 // ENEMIES WON'T HAVE NAMES AS AN INPUT UNLESS THEY ARE BEING INITIATED AS PARTY MEMBERS BY A HUMAN IN MULTI-PLAYER MODE. EXAMPLE BELOW.
 
-var numEnemies = 5;
-
 var enemy1 = new AnnaNicoleSmith ();
 var enemy2 = new Jaws ();
 var enemy3 = new Jaws ();
@@ -304,54 +304,8 @@ var enemy5 = new AnnaNicoleSmith ();
 
 
 
-// SELECT YOUR PARTY MEMBERS.
+// DAMAGE ALGORITHMS
 
-/*
-
-<select id="characterSelect">
-    <option value="1" selected="selected">Officer Farva</option>
-    <option value="2">Kenny Powers</option>
-    <option value="3">Derek Zoolander</option>
-    <option value="4">Gordon Gekko</option>
-    <option value="5">NBA Baller</option>
-    <option value="6">Donald Trump</option>
-    <option value="7">Mike Tyson</option>
-</select>
-
-+ AN INPUT BOX FOR THE CHARACTER NAME
-
-
-
-
-var pMemberChoice = document.getElementById("characterSelect").value;
-	if (pMemberChoice = "1") {
-		pMember1 = new OfficerFarva ();
-	} else if (pMemberChoice = "2") {
-		pMember1 = new KennyPowers ();
-	} else if (pMemberChoice = "3") {
-		pMember1 = new DerekZoolander ();
-	} else if (pMemberChoice = "4") {
-		pMember1 = new GordonGekko ();
-	} else if (pMemberChoice = "5") {
-		pMember1 = new NbaBaller ();
-	} else if (pMemberChoice = "6") {
-		pMember1 = new DonaldTrump ();
-	} else {
-		pMember1 = new MikeTyson ();
-	}
-
-*/
-
-// SECOND LAYER OF COMMAND MENUS
-
-$(".player_action_selector button").on( "click", function() {
-		pMember1.fight();
-	/*
-	if (enemyTarget = 1) {
-		pMember1.fight("enemy"+enemyTarget);
-	};
-	*/
-});
 
 
 
@@ -366,3 +320,6 @@ var sadie = new Dog({
   hungry: false
 });
 */
+
+
+
