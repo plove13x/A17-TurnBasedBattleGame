@@ -534,7 +534,21 @@ if (enemy6) { $(".enemy_stats").append( "<p>" + enemy6.kat + "</p>" );}
 
 $(".player_action_selector button").on( "click", function() {
 		pMember1.fight();
-		
+		$(".player_action_selector button").unbind("click");
+		$(".player_action_selector button").on( "click", function() {
+			pMember2.fight();
+			$(".player_action_selector button").unbind("click");
+			$(".player_action_selector button").on( "click", function() {
+					pMember3.fight();
+					$(".player_action_selector button").unbind("click");
+					$(".player_action_selector button").on( "click", function() {
+						pMember4.fight();
+						$(".player_action_selector button").unbind("click");
+						alert("End user's turn");
+					});	
+			});
+		});		
+
 });
 
 
