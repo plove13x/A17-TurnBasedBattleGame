@@ -39,6 +39,10 @@ body {
     padding: 0 10px 0 0;
   }
 
+  .player_area select {
+    display: block;
+  }
+
   .battle_info {
     outline: 1px dashed red;
     width: 100%;
