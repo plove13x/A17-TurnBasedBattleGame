@@ -16,8 +16,9 @@
   <body>
 
     <div class="container">
+    <h1>PJ'S RPG Battle 9000</h1>
         <div class="game_viewport">
-            
+            <div class="battlefield">
                 <div class="enemies_area">
                     <p>Enemy 1</p>
                     <p>Enemy 2</p>
@@ -27,25 +28,66 @@
                 </div><!-- .enemies_area -->
 
                 <div class="player_area">
-                    <p>Party Member 1</p>
-                    <p>Party Member 2</p>
-                    <p>Party Member 3</p>
-                    <p>Party Member 4</p>
+                    <form class="pS">
+                    <select id="pMember1Select">
+                        <option value="1">Officer Farva</option>
+                        <option value="2">Kenny Powers</option>
+                        <option value="3">Derek Zoolander</option>
+                        <option value="4">Gordon Gekko</option>
+                        <option value="5">NBA Baller</option>
+                        <option value="6">Donald Trump</option>
+                        <option value="7">Mike Tyson</option>
+                    </select>
+                    <input type="text" id="p1Name">
+                    <select id="pMember2Select">
+                        <option value="1" selected="selected">Officer Farva</option>
+                        <option value="2">Kenny Powers</option>
+                        <option value="3">Derek Zoolander</option>
+                        <option value="4">Gordon Gekko</option>
+                        <option value="5">NBA Baller</option>
+                        <option value="6">Donald Trump</option>
+                        <option value="7">Mike Tyson</option>
+                    </select>
+                    <input type="text" id="p2Name">
+                    <select id="pMember3Select">
+                        <option value="1" selected="selected">Officer Farva</option>
+                        <option value="2">Kenny Powers</option>
+                        <option value="3">Derek Zoolander</option>
+                        <option value="4">Gordon Gekko</option>
+                        <option value="5">NBA Baller</option>
+                        <option value="6">Donald Trump</option>
+                        <option value="7">Mike Tyson</option>
+                    </select>
+                    <input type="text" id="p3Name">
+                    <select id="pMember4Select">
+                        <option value="1" selected="selected">Officer Farva</option>
+                        <option value="2">Kenny Powers</option>
+                        <option value="3">Derek Zoolander</option>
+                        <option value="4">Gordon Gekko</option>
+                        <option value="5">NBA Baller</option>
+                        <option value="6">Donald Trump</option>
+                        <option value="7">Mike Tyson</option>
+                    </select>
+                    <input type="text" id="p4Name">
+                    <input type="submit" value="Bring It">   <!--"Submit" type?-->
+                    </form>
                 </div><!-- .player_area -->
+            </div><!-- .battlefield-->
         
                 <div class="battle_info">
-                    <div class="enemey_stats">
+                    <div class="enemy_stats">
                         <p>Enemy 1</p>
                         <p>Enemy 2</p>
                         <p>Enemy 3</p>
                         <p>Enemy 4</p>
                         <p>Enemy 5</p>
-                    </div><!-- .enemey_stats -->
+                    </div><!-- .enemy_stats -->
 
                     <div class="player_action_selector">
                         <button>ATTACK</button>
-                        <button>RUN</button>
-                        <button>HEAL</button>
+                        <button>SPECIAL MOVE</button>
+                        <button>FLEE</button>
+                        <span class="whoseTurn">INFO</span>
 
                     </div><!-- .player_action_selector -->
 
@@ -61,6 +103,8 @@
     </div><!-- .container -->
 
     <script src="scripts/vendor.js"></script>
+
+        
 
         <script src="scripts/main.js"></script>
 </body>
