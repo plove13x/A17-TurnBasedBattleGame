@@ -80,9 +80,13 @@ function OfficerFarva (name, propsObject) {
 	this.status = "confused";
 };
 
+// throwLiterOfCola
 OfficerFarva.prototype = Object.create(PlayerType.prototype);
-OfficerFarva.prototype.throwLiterOfCola = function() {
-	console.log("I said Liter of Cola.");
+OfficerFarva.prototype.specialMove = function() {
+	alert("I said \'Liter of Cola!\'");
+	this.sp = (this.sp - 5);
+	enemy1.hp = (enemy1.hp - 500);
+	alert(enemy1.hp);
 };
 
 
@@ -599,8 +603,8 @@ function enemyTurn() {
 
 function resetPCommandMenu() {
 
-$(".player_action_selector button").on( "click", function() {
-		pMember1.fight();
+$(".attack").on( "click", function() {
+			pMember1.fight();
 		$(".player_action_selector button").unbind("click");
 		$(".whoseTurn").empty();
 		$(".whoseTurn").append("Do something " + pMember2.name + "!")
@@ -626,9 +630,44 @@ $(".player_action_selector button").on( "click", function() {
 			});
 		});		
 
-});
+});		/*END INITIAL fight onClick jQuery call*/
 
-};
+
+
+
+$(".special").on( "click", function() {
+			pMember1.specialMove();
+		$(".player_action_selector button").unbind("click");
+		$(".whoseTurn").empty();
+		$(".whoseTurn").append("Do something " + pMember2.name + "!")
+		$(".attack").on( "click", function() {
+			pMember2.fight();
+			$(".player_action_selector button").unbind("click");
+			$(".whoseTurn").empty();
+			$(".whoseTurn").append("Do something " + pMember3.name + "!")
+			$(".player_action_selector button").on( "click", function() {
+					pMember3.fight();
+					$(".player_action_selector button").unbind("click");
+					$(".whoseTurn").empty();
+					$(".whoseTurn").append("Do something " + pMember4.name + "!")
+					$(".player_action_selector button").on( "click", function() {
+						pMember4.fight();
+						$(".player_action_selector button").unbind("click");
+						alert("End user's turn");
+						$(".whoseTurn").empty();
+						$(".whoseTurn").append("Get off me")
+						appendEnemies();
+						enemyTurn();
+					});	
+			});
+		});		
+
+});		/*END INITIAL specialMove onClick jQuery call*/
+
+
+
+
+};		/*END fn resetPCommandMenu*/
 
 
 resetPCommandMenu();
