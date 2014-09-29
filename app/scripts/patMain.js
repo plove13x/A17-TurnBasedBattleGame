@@ -42,13 +42,19 @@ PlayerType.prototype.fight = function() {
 		(alert("You missed you loser!"))
 	}	else {
 			target.hp = (target.hp - damage);
-		}
 
-	console.log(target.hp);
-	if (target.hp <= 0) {
-		target.status = "dead";
-		console.log(target.status);
-	}
+				console.log(target.hp);
+				
+				if (target.hp <= 0) {
+					target.status = "dead";
+					console.log(target.status);
+					(alert(this.name + " deals " + damage + " damage to " + target.kat + ". She looks dead enough. You should probably focus on someone else..."));
+				} else {
+
+			(alert(this.name + " deals " + damage + " damage to " + target.kat + "."));
+
+				}
+		}
 };
 
 
@@ -211,8 +217,9 @@ EnemyType.prototype.fight = function() {
 	console.log("Attacks player.");
 
 	if (Math.floor(Math.random() * 100) > this.conceit && Math.floor(Math.random() * 100) > target.conceit) {
-		(alert("You missed you loser!"))
+		(alert(this.kat + " missed. What a loser!"))
 	}	else {
+			(alert(this.kat + " deals " + damage + " damage to " + target.name + "."));
 			target.hp = (target.hp - damage);
 		}
 	
@@ -298,6 +305,32 @@ Jaws.prototype.eat = function() {
 // SELECT YOUR PARTY MEMBERS.
 
 
+function appendPMembers() {
+
+$(".player_area").empty();
+$(".player_area").append( "<p>" + pMember1.name + "</p>" );
+$(".player_area").append( "<p>" + pMember2.name + "</p>" );
+$(".player_area").append( "<p>" + pMember3.name + "</p>" );
+$(".player_area").append( "<p>" + pMember4.name + "</p>" );
+
+
+
+
+// BOTTOM-RIGHT CHARACTER INFO
+
+// var $p1hp = pMember1.hp;		COULD USE A VARIABLE IF NEED BE
+$(".player_stats").empty();
+// $(".player_stats").html = "";
+$(".player_stats").append( "<p>" + pMember1.name + " " + pMember1.hp + " " + pMember1.sp + "</p>" );
+$(".player_stats").append( "<p>" + pMember2.name + " " + pMember2.hp + " " + pMember2.sp + "</p>" );
+$(".player_stats").append( "<p>" + pMember3.name + " " + pMember3.hp + " " + pMember3.sp + "</p>" );
+$(".player_stats").append( "<p>" + pMember4.name + " " + pMember4.hp + " " + pMember4.sp + "</p>" );
+
+};
+
+
+
+
 $(".pS").submit(function() {
 
 
@@ -379,26 +412,9 @@ var pMemberChoice4 = document.getElementById("pMember4Select").value;
 	}
 
 
-$(".player_area").empty();
 
 
-$(".player_area").append( "<p>" + pMember1.name + "</p>" );
-$(".player_area").append( "<p>" + pMember2.name + "</p>" );
-$(".player_area").append( "<p>" + pMember3.name + "</p>" );
-$(".player_area").append( "<p>" + pMember4.name + "</p>" );
-
-
-
-
-// BOTTOM-RIGHT CHARACTER INFO
-
-// var $p1hp = pMember1.hp;		COULD USE A VARIABLE IF NEED BE
-$(".player_stats").empty();
-// $(".player_stats").html = "";
-$(".player_stats").append( "<p>" + pMember1.name + pMember1.hp + "</p>" );
-$(".player_stats").append( "<p>" + pMember2.name + pMember2.hp + "</p>" );
-$(".player_stats").append( "<p>" + pMember3.name + pMember3.hp + "</p>" );
-$(".player_stats").append( "<p>" + pMember4.name + pMember4.hp + "</p>" );
+appendPMembers();
 
 
 
@@ -556,12 +572,17 @@ function enemyTurn() {
 	if (enemy6 && enemy6.status !== "dead") {
 		enemy6.fight();
 	};
+
+	appendPMembers();
+	resetPCommandMenu();
 };
 
 
 
 
 // SECOND LAYER OF COMMAND MENUS
+
+function resetPCommandMenu() {
 
 $(".player_action_selector button").on( "click", function() {
 		pMember1.fight();
@@ -583,6 +604,11 @@ $(".player_action_selector button").on( "click", function() {
 		});		
 
 });
+
+};
+
+
+resetPCommandMenu();
 
 
 
