@@ -499,17 +499,18 @@ if (numEnemies === 6) {
 
 
 
+function appendEnemies() {
 
 // TOP-LEFT ENEMY IMAGES (BUT FOR NOW JUST NAMES...)
 
 $(".enemies_area").empty();
 // $(".enemies_area").html = "";
-if (enemy1) { $(".enemies_area").append( "<p>" + enemy1.kat + "</p>" );}
-if (enemy2) { $(".enemies_area").append( "<p>" + enemy2.kat + "</p>" );}
-if (enemy3) { $(".enemies_area").append( "<p>" + enemy3.kat + "</p>" );}
-if (enemy4) { $(".enemies_area").append( "<p>" + enemy4.kat + "</p>" );}
-if (enemy5) { $(".enemies_area").append( "<p>" + enemy5.kat + "</p>" );}
-if (enemy6) { $(".enemies_area").append( "<p>" + enemy6.kat + "</p>" );}
+if (enemy1 && enemy1.status !== "dead") { $(".enemies_area").append( "<p>" + enemy1.kat + "</p>" );}
+if (enemy2 && enemy2.status !== "dead") { $(".enemies_area").append( "<p>" + enemy2.kat + "</p>" );}
+if (enemy3 && enemy3.status !== "dead") { $(".enemies_area").append( "<p>" + enemy3.kat + "</p>" );}
+if (enemy4 && enemy4.status !== "dead") { $(".enemies_area").append( "<p>" + enemy4.kat + "</p>" );}
+if (enemy5 && enemy5.status !== "dead") { $(".enemies_area").append( "<p>" + enemy5.kat + "</p>" );}
+if (enemy6 && enemy6.status !== "dead") { $(".enemies_area").append( "<p>" + enemy6.kat + "</p>" );}
 
 
 
@@ -518,14 +519,44 @@ if (enemy6) { $(".enemies_area").append( "<p>" + enemy6.kat + "</p>" );}
 
 // var $e1kat = enemy1.kat;		COULD USE A VARIABLE IF NEED BE
 $(".enemy_stats").empty();
-if (enemy1) { $(".enemy_stats").append( "<p>" + enemy1.kat + "</p>" );}
-if (enemy2) { $(".enemy_stats").append( "<p>" + enemy2.kat + "</p>" );}
-if (enemy3) { $(".enemy_stats").append( "<p>" + enemy3.kat + "</p>" );}
-if (enemy4) { $(".enemy_stats").append( "<p>" + enemy4.kat + "</p>" );}
-if (enemy5) { $(".enemy_stats").append( "<p>" + enemy5.kat + "</p>" );}
-if (enemy6) { $(".enemy_stats").append( "<p>" + enemy6.kat + "</p>" );}
+if (enemy1 && enemy1.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #1: " + enemy1.kat + "</p>" );}
+if (enemy2 && enemy2.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #2: " + enemy2.kat + "</p>" );}
+if (enemy3 && enemy3.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #3: " + enemy3.kat + "</p>" );}
+if (enemy4 && enemy4.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #4: " + enemy4.kat + "</p>" );}
+if (enemy5 && enemy5.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #5: " + enemy5.kat + "</p>" );}
+if (enemy6 && enemy6.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #6: " + enemy6.kat + "</p>" );}
 
 
+};
+
+
+
+
+appendEnemies();
+
+
+
+
+function enemyTurn() {
+	if (enemy1 && enemy1.status !== "dead") {
+		enemy1.fight();
+	};
+	if (enemy2 && enemy2.status !== "dead") {
+		enemy2.fight();
+	};
+	if (enemy3 && enemy3.status !== "dead") {
+		enemy3.fight();
+	};
+	if (enemy4 && enemy4.status !== "dead") {
+		enemy4.fight();
+	};
+	if (enemy5 && enemy5.status !== "dead") {
+		enemy5.fight();
+	};
+	if (enemy6 && enemy6.status !== "dead") {
+		enemy6.fight();
+	};
+};
 
 
 
@@ -545,6 +576,8 @@ $(".player_action_selector button").on( "click", function() {
 						pMember4.fight();
 						$(".player_action_selector button").unbind("click");
 						alert("End user's turn");
+						appendEnemies();
+						enemyTurn();
 					});	
 			});
 		});		
