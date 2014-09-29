@@ -75,7 +75,7 @@ Celebrity.prototype = Object.create(PlayerType.prototype);
 
 function OfficerFarva (name, propsObject) {
 	PlayerType.apply(this, arguments);
-	this.avatar = "/images/farva.jpg"
+	this.avatar = "images/farva.jpg"
 	this.hp = 1750;
 	this.sp = 25;
 	this.strength = 49;
@@ -91,7 +91,7 @@ OfficerFarva.prototype.throwLiterOfCola = function() {
 
 function KennyPowers (name, propsObject) {
 	PlayerType.apply(this, arguments);
-	this.avatar = "/images/kPowers.jpeg"
+	this.avatar = "images/kPowers.jpeg"
 	this.hp = 666;
 	this.sp = 60;
 	this.strength = 60;
@@ -107,7 +107,7 @@ KennyPowers.prototype.throwBeerCan = function() {
 
 function DerekZoolander (name, propsObject) {
 	PlayerType.apply(this, arguments);
-	this.avatar = "/images/dZoo.jpeg"
+	this.avatar = "images/dZoo.jpeg"
 	this.hp = 800;
 	this.sp = 50;
 	this.strength = 3;
@@ -122,7 +122,7 @@ DerekZoolander.prototype.blueSteel = function() {
 
 function GordonGekko (name, propsObject) {
 	Celebrity.apply(this, arguments);
-	this.avatar = "/images/gekko.jpeg"
+	this.avatar = "images/gekko.jpeg"
 	this.sp = 500;
 	this.strength = 20;
 	this.conceit = 85;
@@ -136,7 +136,7 @@ GordonGekko.prototype.makeItRain = function() {
 
 function NbaBaller (name, propsObject) {
 	Celebrity.apply(this, arguments);
-	this.avatar = "/images/dirkParsons.jpeg"
+	this.avatar = "images/dirkParsons.jpeg"
 	this.hp = 1300;
 	this.sp = 250;
 	this.strength = 75;	
@@ -151,7 +151,7 @@ NbaBaller.prototype.dunk = function() {
 
 function DonaldTrump (name, propsObject) {
 	Celebrity.apply(this, arguments);
-	this.avatar = "/images/trump.jpeg"
+	this.avatar = "images/trump.jpeg"
 	this.hp = 1200;
 	this.sp = 400;
 	this.strength = 30;
@@ -166,7 +166,7 @@ DonaldTrump.prototype.youreFired = function() {
 
 function MikeTyson (name, propsObject) {
 	Celebrity.apply(this, arguments);
-	this.avatar = "/images/mTyson.jpeg"
+	this.avatar = "images/mTyson.jpeg"
 	this.hp = 2500;
 	this.sp = 85;
 	this.strength = 85;
@@ -266,7 +266,7 @@ Monster.prototype = Object.create(EnemyType.prototype);
 function AnnaNicoleSmith (name, propsObject) {
 	EvilCelebrity.apply(this, arguments);
 	this.kat = "Anna Nicole Smith";
-	this.avatar = "/images/ANS.jpg";
+	this.avatar = "images/ANS.jpg";
 	this.hp = 100;
 	this.sp = 200;
 	this.strength = 5;
@@ -283,7 +283,7 @@ AnnaNicoleSmith.prototype.stealMoney = function() {
 function Communist (name, propsObject) {
 	Monster.apply(this, arguments);
 	this.kat = "Communist";
-	this.avatar = "/images/communism.jpg";
+	this.avatar = "images/communism.jpg";
 	this.hp = 2000;
 	this.sp = 5;
 	this.strength = 40;
@@ -299,7 +299,7 @@ Communist.prototype.spreadTheWealth = function() {
 function Jaws (name, propsObject) {
 	Monster.apply(this, arguments);
 	this.kat = "Jaws";
-	this.avatar = "/images/jaws.jpg"
+	this.avatar = "images/jaws.jpg"
 	this.hp = 500;
 	this.sp = 10;
 	this.strength = 90;
