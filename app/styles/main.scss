@@ -27,10 +27,10 @@ body {
 }
 
 .battlefield {
-  background: url('../background.gif') no-repeat fixed;
+  background: url('../wheatBG.jpg') no-repeat fixed;
   background-size: contain;
   width: 100%;
-  height: 500px;
+  height: 300px;        /*Changed from 500px since I didn't understand contain*/
   border-radius: 10px;
 }
 
@@ -51,7 +51,7 @@ body {
     right: 0;
     text-align: right;
     padding: 0 10px 0 0;
-    color: white;
+    color: green;
   }
 
   .player_area select {
@@ -61,7 +61,7 @@ body {
   .battle_info {
     outline: 1px dashed red;
     width: 100%;
-    height: 220px;
+    height: 270px;
     position: relative;
   }
 
@@ -75,7 +75,9 @@ body {
   .player_action_selector {
     width: 30%;
     height: 100%;
+    color: chartreuse;
     background-color: blue;
+    text-align: center;
     position: absolute;
     top: 0;
     right: 35%;
@@ -85,6 +87,7 @@ body {
       margin: 0 auto;
       width: 100%;
       height: 20%;
+      color: black;
     }
   }
 

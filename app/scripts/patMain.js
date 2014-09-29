@@ -72,6 +72,7 @@ Celebrity.prototype = Object.create(PlayerType.prototype);
 
 function OfficerFarva (name, propsObject) {
 	PlayerType.apply(this, arguments);
+	this.avatar = "../images/farva.jpg"
 	this.hp = 1750;
 	this.sp = 25;
 	this.strength = 49;
@@ -87,6 +88,7 @@ OfficerFarva.prototype.throwLiterOfCola = function() {
 
 function KennyPowers (name, propsObject) {
 	PlayerType.apply(this, arguments);
+	this.avatar = "../images/kPowers.jpeg"
 	this.hp = 666;
 	this.sp = 60;
 	this.strength = 60;
@@ -102,6 +104,7 @@ KennyPowers.prototype.throwBeerCan = function() {
 
 function DerekZoolander (name, propsObject) {
 	PlayerType.apply(this, arguments);
+	this.avatar = "../images/dZoo.jpeg"
 	this.hp = 800;
 	this.sp = 50;
 	this.strength = 3;
@@ -116,6 +119,7 @@ DerekZoolander.prototype.blueSteel = function() {
 
 function GordonGekko (name, propsObject) {
 	Celebrity.apply(this, arguments);
+	this.avatar = "../images/gekko.jpeg"
 	this.sp = 500;
 	this.strength = 20;
 	this.conceit = 85;
@@ -129,6 +133,7 @@ GordonGekko.prototype.makeItRain = function() {
 
 function NbaBaller (name, propsObject) {
 	Celebrity.apply(this, arguments);
+	this.avatar = "../images/dirkParsons.jpeg"
 	this.hp = 1300;
 	this.sp = 250;
 	this.strength = 75;	
@@ -143,6 +148,7 @@ NbaBaller.prototype.dunk = function() {
 
 function DonaldTrump (name, propsObject) {
 	Celebrity.apply(this, arguments);
+	this.avatar = "../images/trump.jpeg"
 	this.hp = 1200;
 	this.sp = 400;
 	this.strength = 30;
@@ -157,6 +163,7 @@ DonaldTrump.prototype.youreFired = function() {
 
 function MikeTyson (name, propsObject) {
 	Celebrity.apply(this, arguments);
+	this.avatar = "../images/mTyson.jpeg"
 	this.hp = 2500;
 	this.sp = 85;
 	this.strength = 85;
@@ -256,6 +263,7 @@ Monster.prototype = Object.create(EnemyType.prototype);
 function AnnaNicoleSmith (name, propsObject) {
 	EvilCelebrity.apply(this, arguments);
 	this.kat = "Anna Nicole Smith";
+	this.avatar = "../images/ANS.jpg";
 	this.hp = 100;
 	this.sp = 200;
 	this.strength = 5;
@@ -272,6 +280,7 @@ AnnaNicoleSmith.prototype.stealMoney = function() {
 function Communist (name, propsObject) {
 	Monster.apply(this, arguments);
 	this.kat = "Communist";
+	this.avatar = "../images/communism.jpg";
 	this.hp = 2000;
 	this.sp = 5;
 	this.strength = 40;
@@ -287,6 +296,7 @@ Communist.prototype.spreadTheWealth = function() {
 function Jaws (name, propsObject) {
 	Monster.apply(this, arguments);
 	this.kat = "Jaws";
+	this.avatar = "../images/jaws.jpg"
 	this.hp = 500;
 	this.sp = 10;
 	this.strength = 90;
@@ -308,10 +318,10 @@ Jaws.prototype.eat = function() {
 function appendPMembers() {
 
 $(".player_area").empty();
-$(".player_area").append( "<p>" + pMember1.name + "</p>" );
-$(".player_area").append( "<p>" + pMember2.name + "</p>" );
-$(".player_area").append( "<p>" + pMember3.name + "</p>" );
-$(".player_area").append( "<p>" + pMember4.name + "</p>" );
+$(".player_area").append( "<p>" + "<img src=\'" + pMember1.avatar + "\'></p>" );
+$(".player_area").append( "<p>" + "<img src=\'" + pMember2.avatar + "\'></p>" );
+$(".player_area").append( "<p>" + "<img src=\'" + pMember3.avatar + "\'></p>" );
+$(".player_area").append( "<p>" + "<img src=\'" + pMember4.avatar + "\'></p>" );
 
 
 
@@ -325,6 +335,11 @@ $(".player_stats").append( "<p>" + pMember1.name + " " + pMember1.hp + " " + pMe
 $(".player_stats").append( "<p>" + pMember2.name + " " + pMember2.hp + " " + pMember2.sp + "</p>" );
 $(".player_stats").append( "<p>" + pMember3.name + " " + pMember3.hp + " " + pMember3.sp + "</p>" );
 $(".player_stats").append( "<p>" + pMember4.name + " " + pMember4.hp + " " + pMember4.sp + "</p>" );
+
+
+$(".whoseTurn").empty();
+$(".whoseTurn").append("Do something " + pMember1.name + "!")
+
 
 };
 
@@ -521,12 +536,12 @@ function appendEnemies() {
 
 $(".enemies_area").empty();
 // $(".enemies_area").html = "";
-if (enemy1 && enemy1.status !== "dead") { $(".enemies_area").append( "<p>" + enemy1.kat + "</p>" );}
-if (enemy2 && enemy2.status !== "dead") { $(".enemies_area").append( "<p>" + enemy2.kat + "</p>" );}
-if (enemy3 && enemy3.status !== "dead") { $(".enemies_area").append( "<p>" + enemy3.kat + "</p>" );}
-if (enemy4 && enemy4.status !== "dead") { $(".enemies_area").append( "<p>" + enemy4.kat + "</p>" );}
-if (enemy5 && enemy5.status !== "dead") { $(".enemies_area").append( "<p>" + enemy5.kat + "</p>" );}
-if (enemy6 && enemy6.status !== "dead") { $(".enemies_area").append( "<p>" + enemy6.kat + "</p>" );}
+if (enemy1 && enemy1.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy1.avatar + "\'></p>" );}
+if (enemy2 && enemy2.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy2.avatar + "\'></p>" );}
+if (enemy3 && enemy3.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy3.avatar + "\'></p>" );}
+if (enemy4 && enemy4.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy4.avatar + "\'></p>" );}
+if (enemy5 && enemy5.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy5.avatar + "\'></p>" );}
+if (enemy6 && enemy6.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy6.avatar + "\'></p>" );}
 
 
 
@@ -587,16 +602,24 @@ function resetPCommandMenu() {
 $(".player_action_selector button").on( "click", function() {
 		pMember1.fight();
 		$(".player_action_selector button").unbind("click");
+		$(".whoseTurn").empty();
+		$(".whoseTurn").append("Do something " + pMember2.name + "!")
 		$(".player_action_selector button").on( "click", function() {
 			pMember2.fight();
 			$(".player_action_selector button").unbind("click");
+			$(".whoseTurn").empty();
+			$(".whoseTurn").append("Do something " + pMember3.name + "!")
 			$(".player_action_selector button").on( "click", function() {
 					pMember3.fight();
 					$(".player_action_selector button").unbind("click");
+					$(".whoseTurn").empty();
+					$(".whoseTurn").append("Do something " + pMember4.name + "!")
 					$(".player_action_selector button").on( "click", function() {
 						pMember4.fight();
 						$(".player_action_selector button").unbind("click");
 						alert("End user's turn");
+						$(".whoseTurn").empty();
+						$(".whoseTurn").append("Get off me")
 						appendEnemies();
 						enemyTurn();
 					});	
