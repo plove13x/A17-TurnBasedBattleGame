@@ -33,17 +33,18 @@ PlayerType.prototype.fight = function() {
 				}	else {
 				target = enemy4;
 	}*/
+	console.log("Target:");
 	console.log(target);
 	var damage = this.strength*(Math.floor(Math.random() * 10));
-	console.log(damage);
-	console.log("Attacks enemy.");
+	// console.log(damage);
+	console.log(this.name + " attacks enemy for " + damage + " damage.");
 
 	if (Math.floor(Math.random() * 100) > this.conceit && Math.floor(Math.random() * 100) > target.conceit) {
 		(alert("You missed you loser!"))
 	}	else {
 			target.hp = (target.hp - damage);
 
-				console.log(target.hp);
+				console.log("HP remaining: " + target.hp);
 				
 				if (target.hp <= 0) {
 					target.status = "dead";
@@ -74,7 +75,9 @@ function OfficerFarva (name, propsObject) {
 	PlayerType.apply(this, arguments);
 	this.avatar = "images/farva.jpg"
 	this.hp = 1750;
+	this.maxHP = 1750;
 	this.sp = 25;
+	this.maxSP = 25;
 	this.sMCost = 3;
 	this.strength = 49;
 	this.conceit = 45;
@@ -84,20 +87,23 @@ function OfficerFarva (name, propsObject) {
 OfficerFarva.prototype = Object.create(PlayerType.prototype);
 OfficerFarva.prototype.specialMove = function() {
 	var target = window["enemy" + prompt("Which enemy do you want to attack?\nPlease enter a # from 1-" + numEnemies + ".")];
-	var damage = 333;
-	target.hp = (target.hp - damage);
 	this.sp = (this.sp-this.sMCost);
+	var damage = 333;	
 
-		console.log("I said Liter of Cola.");
-		console.log(target.hp);
+	console.log("I said Liter of Cola.");
+	console.log(target);
+	
+	target.hp = (target.hp - damage);
+	
+	console.log("Enemy HP remaining: " + target.hp);
 				
-		if (target.hp <= 0) {
-			target.status = "dead";
-			console.log(target.status);
-			(alert(this.name + " accidentally rams his car into " + target.kat + " while trying to play 'Car RamRod', resulting in severe whiplash and " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
-		} else {
-			(alert(this.name + " accidentally rams his car into " + target.kat + " while trying to play 'Car RamRod', resulting in severe whiplash and " + damage + " damage."));
-		}
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+		(alert(this.name + " accidentally rams his car into " + target.kat + " while trying to play 'Car RamRod', resulting in severe whiplash and " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
+	} else {
+		(alert(this.name + " accidentally rams his car into " + target.kat + " while trying to play 'Car RamRod', resulting in severe whiplash and " + damage + " damage."));
+	}
 };
 
 
@@ -105,7 +111,9 @@ function KennyPowers (name, propsObject) {
 	PlayerType.apply(this, arguments);
 	this.avatar = "images/kPowers.jpeg"
 	this.hp = 666;
+	this.maxHP = 666;
 	this.sp = 60;
+	this.maxSP = 60;
 	this.sMCost = 5;
 	this.strength = 60;
 	this.conceit = 69;
@@ -115,20 +123,23 @@ function KennyPowers (name, propsObject) {
 KennyPowers.prototype = Object.create(PlayerType.prototype);
 KennyPowers.prototype.specialMove = function() {
 	var target = window["enemy" + prompt("Which enemy do you want to attack?\nPlease enter a # from 1-" + numEnemies + ".")];
-	var damage = 275;
-	target.hp = (target.hp - damage);
 	this.sp = (this.sp-this.sMCost);
+	var damage = 275;
 
-		console.log("Can I wear the Scream mask?");
-		console.log(target.hp);
-				
-		if (target.hp <= 0) {
-			target.status = "dead";
-			console.log(target.status);
-			(alert(this.name + " gets frustrated and hurls a freshly opened beer can at " + target.kat + ", beaning her in the head for " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
-		} else {
-			(alert(this.name + " gets frustrated and hurls a freshly opened beer can at " + target.kat + ", beaning her in the head for " + damage + " damage."));
-		}
+	console.log("Can I wear the Scream mask?");
+	console.log(target);
+	
+	target.hp = (target.hp - damage);
+	
+	console.log("Enemy HP remaining: " + target.hp);
+
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+		(alert(this.name + " gets frustrated and hurls a freshly opened beer can at " + target.kat + ", beaning her in the head for " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
+	} else {
+		(alert(this.name + " gets frustrated and hurls a freshly opened beer can at " + target.kat + ", beaning her in the head for " + damage + " damage."));
+	}
 };
 
 
@@ -136,7 +147,9 @@ function DerekZoolander (name, propsObject) {
 	PlayerType.apply(this, arguments);
 	this.avatar = "images/dZoo.jpeg"
 	this.hp = 800;
+	this.maxHP = 800;
 	this.sp = 50;
+	this.maxSP = 50;
 	this.sMCost = 50;
 	this.strength = 3;
 	this.conceit = 98;
@@ -145,27 +158,32 @@ function DerekZoolander (name, propsObject) {
 DerekZoolander.prototype = Object.create(PlayerType.prototype);
 DerekZoolander.prototype.specialMove = function() {
 	var target = window["enemy" + prompt("Which enemy do you want to attack?\nPlease enter a # from 1-" + numEnemies + ".")];
-	var damage = 1500;
-	target.hp = (target.hp - damage);
 	this.sp = (this.sp-this.sMCost);
-
-		console.log("I still can't turn left.");
-		console.log(target.hp);
+	var damage = 1500;
+	
+	console.log("I still can't turn left.");
+	console.log(target);
+	
+	target.hp = (target.hp - damage);
+	
+	console.log("Enemy HP remaining: " + target.hp);
 				
-		if (target.hp <= 0) {
-			target.status = "dead";
-			console.log(target.status);
-			(alert(this.name + " shows what all the hype is about and unleashes Blue Steel on " + target.kat + ", who is immediately stunned and sustains " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
-		} else {
-			(alert(this.name + " shows what all the hype is about and unleashes Blue Steel on " + target.kat + ", who is immediately stunned and sustains " + damage + " damage."));
-		}
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+		(alert(this.name + " shows what all the hype is about and unleashes Blue Steel on " + target.kat + ", who is immediately stunned and sustains " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
+	} else {
+		(alert(this.name + " shows what all the hype is about and unleashes Blue Steel on " + target.kat + ", who is immediately stunned and sustains " + damage + " damage."));
+	}
 };
 
 
 function GordonGekko (name, propsObject) {
 	Celebrity.apply(this, arguments);
 	this.avatar = "images/gekko.jpeg"
+	this.maxHP = 1000;
 	this.sp = 500;
+	this.maxSP = 500;
 	this.sMCost = 20;
 	this.strength = 20;
 	this.conceit = 85;
@@ -174,20 +192,23 @@ function GordonGekko (name, propsObject) {
 GordonGekko.prototype = Object.create(Celebrity.prototype);
 GordonGekko.prototype.specialMove = function() {
 	var target = window["enemy" + prompt("Which enemy do you want to attack?\nPlease enter a # from 1-" + numEnemies + ".")];
-	var damage = 250;
-	target.hp = (target.hp - damage);
 	this.sp = (this.sp-this.sMCost);
+	var damage = 250;
 
-		console.log("I just made it rain on your ass.");
-		console.log(target.hp);
+	console.log("I just made it rain on your ass.");
+	console.log(target);
+	
+	target.hp = (target.hp - damage);
+	
+	console.log("Enemy HP remaining: " + target.hp);
 				
-		if (target.hp <= 0) {
-			target.status = "dead";
-			console.log(target.status);
-			(alert(this.name + " stands demeaningly over " + target.kat + " and makes it rain thousands of $1 bills all over her. Papercuts cause " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
-		} else {
-			(alert(this.name + " stands demeaningly over " + target.kat + " and makes it rain thousands of $1 bills all over her. Papercuts cause " + damage + " damage."));
-		}
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+		(alert(this.name + " stands demeaningly over " + target.kat + " and makes it rain thousands of $1 bills all over her. Papercuts cause " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
+	} else {
+		(alert(this.name + " stands demeaningly over " + target.kat + " and makes it rain thousands of $1 bills all over her. Papercuts cause " + damage + " damage."));
+	}
 };
 
 
@@ -195,7 +216,9 @@ function NbaBaller (name, propsObject) {
 	Celebrity.apply(this, arguments);
 	this.avatar = "images/dirkParsons.jpeg"
 	this.hp = 1300;
+	this.maxHP = 1300;
 	this.sp = 250;
+	this.maxSP = 250;
 	this.sMCost = 50;
 	this.strength = 75;	
 	this.conceit = 80;
@@ -204,20 +227,23 @@ function NbaBaller (name, propsObject) {
 NbaBaller.prototype = Object.create(Celebrity.prototype);
 NbaBaller.prototype.specialMove = function() {
 	var target = window["enemy" + prompt("Which enemy do you want to attack?\nPlease enter a # from 1-" + numEnemies + ".")];
-	var damage = 400;
-	target.hp = (target.hp - damage);
 	this.sp = (this.sp-this.sMCost);
+	var damage = 400;
 
-		console.log("And 1.");
-		console.log(target.hp);
+	console.log("And 1.");
+	console.log(target);
+	
+	target.hp = (target.hp - damage);
+	
+	console.log("Enemy HP remaining: " + target.hp);
 				
-		if (target.hp <= 0) {
-			target.status = "dead";
-			console.log(target.status);
-			(alert(this.name + " skys to the rafters and throws down a sick dunk in " + target.kat + "'s grill. " + damage + " damage inflicted. She looks dead enough. You should probably focus on someone else..."));
-		} else {
-			(alert(this.name + " skys to the rafters and throws down a sick dunk in " + target.kat + "'s grill. " + damage + " damage inflicted."));
-		}
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+		(alert(this.name + " skys to the rafters and throws down a sick dunk in " + target.kat + "'s grill. " + damage + " damage inflicted. She looks dead enough. You should probably focus on someone else..."));
+	} else {
+		(alert(this.name + " skys to the rafters and throws down a sick dunk in " + target.kat + "'s grill. " + damage + " damage inflicted."));
+	}
 };
 
 
@@ -225,7 +251,9 @@ function DonaldTrump (name, propsObject) {
 	Celebrity.apply(this, arguments);
 	this.avatar = "images/trump.jpeg"
 	this.hp = 1200;
+	this.maxHP = 1200;
 	this.sp = 400;
+	this.maxSP = 400;
 	this.sMCost = 10;
 	this.strength = 30;
 	this.conceit = 90;
@@ -234,20 +262,23 @@ function DonaldTrump (name, propsObject) {
 DonaldTrump.prototype = Object.create(Celebrity.prototype);
 DonaldTrump.prototype.specialMove = function() {
 	var target = window["enemy" + prompt("Which enemy do you want to attack?\nPlease enter a # from 1-" + numEnemies + ".")];
-	var damage = 333;
-	target.hp = (target.hp - damage);
 	this.sp = (this.sp-this.sMCost);
+	var damage = 333;
 
-		console.log("You're Fired.");
-		console.log(target.hp);
+	console.log("You're Fired.");
+	console.log(target);
+	
+	target.hp = (target.hp - damage);
+	
+	console.log("Enemy HP remaining: " + target.hp);
 				
-		if (target.hp <= 0) {
-			target.status = "dead";
-			console.log(target.status);
-			(alert(this.name + " looks " + target.kat + " dead in the eye in declares 'You're Fired!', scarring her psychologically to the tune of " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
-		} else {
-			(alert(this.name + " looks " + target.kat + " dead in the eye in declares 'You're Fired!', scarring her psychologically to the tune of " + damage + " damage."));
-		}
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+		(alert(this.name + " looks " + target.kat + " dead in the eye in declares 'You're Fired!', scarring her psychologically to the tune of " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
+	} else {
+		(alert(this.name + " looks " + target.kat + " dead in the eye in declares 'You're Fired!', scarring her psychologically to the tune of " + damage + " damage."));
+	}
 };
 
 
@@ -255,7 +286,9 @@ function MikeTyson (name, propsObject) {
 	Celebrity.apply(this, arguments);
 	this.avatar = "images/mTyson.jpeg"
 	this.hp = 2500;
+	this.maxHP = 2500;
 	this.sp = 85;
+	this.maxSP = 85;
 	this.sMCost = 25;
 	this.strength = 85;
 	this.conceit = 33;
@@ -264,20 +297,23 @@ function MikeTyson (name, propsObject) {
 MikeTyson.prototype = Object.create(Celebrity.prototype);
 MikeTyson.prototype.specialMove = function() {
 	var target = window["enemy" + prompt("Which enemy do you want to attack?\nPlease enter a # from 1-" + numEnemies + ".")];
-	var damage = 500;
-	target.hp = (target.hp - damage);
 	this.sp = (this.sp-this.sMCost);
-
-		console.log("Bites ear off.");
-		console.log(target.hp);
+	var damage = 500;
+	
+	console.log("Bites ear off.");
+	console.log(target);
+	
+	target.hp = (target.hp - damage);
+	
+	console.log("Enemy HP remaining: " + target.hp);
 				
-		if (target.hp <= 0) {
-			target.status = "dead";
-			console.log(target.status);
-			(alert(this.name + " bites " + target.kat + "'s ear off and deals " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
-		} else {
-			(alert(this.name + " bites " + target.kat + "'s ear off and deals " + damage + " damage."));
-		}
+	if (target.hp <= 0) {
+		target.status = "dead";
+		console.log(target.status);
+		(alert(this.name + " bites " + target.kat + "'s ear off and deals " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
+	} else {
+		(alert(this.name + " bites " + target.kat + "'s ear off and deals " + damage + " damage."));
+	}
 };
 
 
@@ -313,7 +349,7 @@ function EnemyType (name, propsObject) {
 
 EnemyType.prototype.fight = function() {
 	var target = Math.floor(Math.random() * 100);
-	console.log(target);
+	// console.log(target);
 	if (target < 25) {
 		target = pMember1;
 		}	else if (25 < target && target < 50) {
@@ -323,10 +359,10 @@ EnemyType.prototype.fight = function() {
 				}	else {
 				target = pMember4;
 	}
+	console.log("Target: ");
 	console.log(target);
 	var damage = this.strength*(Math.floor(Math.random() * 10));
-	console.log(damage);
-	console.log("Attacks player.");
+	console.log(this.kat + " attacks player for " + damage + " damage.");
 
 	if (Math.floor(Math.random() * 100) > this.conceit && Math.floor(Math.random() * 100) > target.conceit) {
 		(alert(this.kat + " missed. What a loser!"))
@@ -335,7 +371,7 @@ EnemyType.prototype.fight = function() {
 			target.hp = (target.hp - damage);
 		}
 	
-	console.log(target.hp);
+	console.log("HP remaining: " + target.hp);
 	if (target.hp <= 0) {
 		target.status = "dead";
 		console.log(target.status);
@@ -436,10 +472,10 @@ $(".player_area").append( "<p>" + "<img src=\'" + pMember4.avatar + "\'></p>" );
 // var $p1hp = pMember1.hp;		COULD USE A VARIABLE IF NEED BE
 $(".player_stats").empty();
 // $(".player_stats").html = "";
-$(".player_stats").append( "<p>" + pMember1.name + " " + pMember1.hp + " " + pMember1.sp + "</p>" );
-$(".player_stats").append( "<p>" + pMember2.name + " " + pMember2.hp + " " + pMember2.sp + "</p>" );
-$(".player_stats").append( "<p>" + pMember3.name + " " + pMember3.hp + " " + pMember3.sp + "</p>" );
-$(".player_stats").append( "<p>" + pMember4.name + " " + pMember4.hp + " " + pMember4.sp + "</p>" );
+$(".player_stats").append( "<p>" + pMember1.name + " | HP: " + pMember1.hp + "/" + pMember1.maxHP + " SP: " + pMember1.sp + "/" + pMember1.maxSP + "</p>" );
+$(".player_stats").append( "<p>" + pMember2.name + " | HP: " + pMember2.hp + "/" + pMember2.maxHP + " SP: " + pMember2.sp + "/" + pMember2.maxSP + "</p>" );
+$(".player_stats").append( "<p>" + pMember3.name + " | HP: " + pMember3.hp + "/" + pMember3.maxHP + " SP: " + pMember3.sp + "/" + pMember3.maxSP + "</p>" );
+$(".player_stats").append( "<p>" + pMember4.name + " | HP: " + pMember4.hp + "/" + pMember4.maxHP + " SP: " + pMember4.sp + "/" + pMember4.maxSP + "</p>" );
 
 
 $(".whoseTurn").empty();
@@ -640,13 +676,14 @@ function appendEnemies() {
 // TOP-LEFT ENEMY IMAGES (BUT FOR NOW JUST NAMES...)
 
 $(".enemies_area").empty();
+$(".enemies_areaCol2").empty();
 // $(".enemies_area").html = "";
 if (enemy1 && enemy1.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy1.avatar + "\'></p>" );}
 if (enemy2 && enemy2.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy2.avatar + "\'></p>" );}
 if (enemy3 && enemy3.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy3.avatar + "\'></p>" );}
 if (enemy4 && enemy4.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy4.avatar + "\'></p>" );}
-if (enemy5 && enemy5.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy5.avatar + "\'></p>" );}
-if (enemy6 && enemy6.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy6.avatar + "\'></p>" );}
+if (enemy5 && enemy5.status !== "dead") { $(".enemies_areaCol2").append( "<p>" + "<img src=\'" + enemy5.avatar + "\'></p>" );}
+if (enemy6 && enemy6.status !== "dead") { $(".enemies_areaCol2").append( "<p>" + "<img src=\'" + enemy6.avatar + "\'></p>" );}
 
 
 
@@ -789,7 +826,7 @@ $(".player_action_selector button").on( "click", function() {
 
 resetPCommandMenu();
 
-
+alert('Please select a player type and enter a name for each of your four party members in the top right quadrant of the screen.');
 
 /*
 	if (enemyTarget = 1) {
