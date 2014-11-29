@@ -7,6 +7,7 @@ var $ = require('gulp-load-plugins')();
 var rimraf = require('rimraf');
 var exec = require('child_process').exec;
 var prompt = require('gulp-prompt');
+var mainBowerFiles = require('main-bower-files');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -115,7 +116,7 @@ gulp.task('default', ['clean'], function () {
 gulp.task('deploy', function() {
 
   gulp.src('/')
-    .pipe(prompt.prompt({
+    .pipe($.prompt.prompt({
         type: 'confirm',
         name: 'task',
         message: 'This will deploy to GitHub Pages. Have you already built your application and pushed your updated master branch?'
