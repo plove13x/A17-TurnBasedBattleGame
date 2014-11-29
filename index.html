@@ -16,7 +16,7 @@
   <body>
 
     <div class="container">
-    <h1>PJ'S RPG Battle 9000</h1>
+    <h1>RPG Battle 9000</h1>
         <div class="game_viewport">
             <div class="battlefield">
                 <div class="enemies_area">
@@ -26,6 +26,8 @@
                     <p>Enemy 4</p>
                     <p>Enemy 5</p>
                 </div><!-- .enemies_area -->
+                <div class="enemies_areaCol2">
+                </div>
 
                 <div class="player_area">
                     <form class="pS">
@@ -69,7 +71,7 @@
                         <option value="7">Mike Tyson</option>
                     </select>
                     <input type="text" id="p4Name">
-                    <input type="submit" value="Bring It">   <!--"Submit" type?-->
+                    <input type="submit" value="READY!">   <!--"Submit" type?-->
                     </form>
                 </div><!-- .player_area -->
             </div><!-- .battlefield-->
@@ -84,10 +86,11 @@
                     </div><!-- .enemy_stats -->
 
                     <div class="player_action_selector">
-                        <button>ATTACK</button>
-                        <button>SPECIAL MOVE</button>
-                        <button>FLEE</button>
+                        <button class="attack">ATTACK</button>
+                        <button class="special">SPECIAL MOVE</button>
+<!--                         <button>FLEE</button> -->
                         <span class="whoseTurn">INFO</span>
+                        <p class="cL">Open your console for extra enemy data ("Easy Mode").</p>
 
                     </div><!-- .player_action_selector -->
 
