@@ -479,7 +479,7 @@ $(".player_stats").append( "<p>" + pMember4.name + " | HP: " + pMember4.hp + "/"
 
 
 $(".whoseTurn").empty();
-$(".whoseTurn").append("Do something " + pMember1.name + "!")
+// $(".whoseTurn").append("Do something " + pMember1.name + "!")
 
 
 };
@@ -571,6 +571,7 @@ var pMemberChoice4 = document.getElementById("pMember4Select").value;
 
 
 appendPMembers();
+resetPCommandMenu();
 
 
 
@@ -673,33 +674,36 @@ if (numEnemies === 6) {
 
 function appendEnemies() {
 
-// TOP-LEFT ENEMY IMAGES (BUT FOR NOW JUST NAMES...)
+	// TOP-LEFT ENEMY IMAGES (BUT FOR NOW JUST NAMES...)
 
-$(".enemies_area").empty();
-$(".enemies_areaCol2").empty();
-// $(".enemies_area").html = "";
-if (enemy1 && enemy1.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy1.avatar + "\'></p>" );}
-if (enemy2 && enemy2.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy2.avatar + "\'></p>" );}
-if (enemy3 && enemy3.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy3.avatar + "\'></p>" );}
-if (enemy4 && enemy4.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy4.avatar + "\'></p>" );}
-if (enemy5 && enemy5.status !== "dead") { $(".enemies_areaCol2").append( "<p>" + "<img src=\'" + enemy5.avatar + "\'></p>" );}
-if (enemy6 && enemy6.status !== "dead") { $(".enemies_areaCol2").append( "<p>" + "<img src=\'" + enemy6.avatar + "\'></p>" );}
-
-
+	$(".enemies_area").empty();
+	$(".enemies_areaCol2").empty();
+	// $(".enemies_area").html = "";
+	if (enemy1 && enemy1.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy1.avatar + "\'></p>" );}
+	if (enemy2 && enemy2.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy2.avatar + "\'></p>" );}
+	if (enemy3 && enemy3.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy3.avatar + "\'></p>" );}
+	if (enemy4 && enemy4.status !== "dead") { $(".enemies_area").append( "<p>" + "<img src=\'" + enemy4.avatar + "\'></p>" );}
+	if (enemy5 && enemy5.status !== "dead") { $(".enemies_areaCol2").append( "<p>" + "<img src=\'" + enemy5.avatar + "\'></p>" );}
+	if (enemy6 && enemy6.status !== "dead") { $(".enemies_areaCol2").append( "<p>" + "<img src=\'" + enemy6.avatar + "\'></p>" );}
 
 
-// BOTTOM-LEFT ENEMY NAMES
-
-// var $e1kat = enemy1.kat;		COULD USE A VARIABLE IF NEED BE
-$(".enemy_stats").empty();
-if (enemy1 && enemy1.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #1: " + enemy1.kat + "</p>" );}
-if (enemy2 && enemy2.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #2: " + enemy2.kat + "</p>" );}
-if (enemy3 && enemy3.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #3: " + enemy3.kat + "</p>" );}
-if (enemy4 && enemy4.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #4: " + enemy4.kat + "</p>" );}
-if (enemy5 && enemy5.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #5: " + enemy5.kat + "</p>" );}
-if (enemy6 && enemy6.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #6: " + enemy6.kat + "</p>" );}
 
 
+	// BOTTOM-LEFT ENEMY NAMES
+
+	// var $e1kat = enemy1.kat;		COULD USE A VARIABLE IF NEED BE
+	$(".enemy_stats").empty();
+	if (enemy1 && enemy1.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #1: " + enemy1.kat + "</p>" );}
+	if (enemy2 && enemy2.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #2: " + enemy2.kat + "</p>" );}
+	if (enemy3 && enemy3.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #3: " + enemy3.kat + "</p>" );}
+	if (enemy4 && enemy4.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #4: " + enemy4.kat + "</p>" );}
+	if (enemy5 && enemy5.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #5: " + enemy5.kat + "</p>" );}
+	if (enemy6 && enemy6.status !== "dead") { $(".enemy_stats").append( "<p>" + "Enemy #6: " + enemy6.kat + "</p>" );}
+
+	if (!(enemy1 && enemy1.status !== "dead") && !(enemy2 && enemy2.status !== "dead") && !(enemy3 && enemy3.status !== "dead") && !(enemy4 && enemy4.status !== "dead") && !(enemy5 && enemy5.status !== "dead") && !(enemy6 && enemy6.status !== "dead")) 
+	{
+		alert("YOU WIN! Refresh the page to play again.");
+	}
 };
 
 
@@ -747,86 +751,150 @@ function enemyTurn() {
 // });
 	
 
+// var turnsCompleted = [];
+
 
 function resetPCommandMenu() {
+	if (pMember1.hp >= 1 || pMember2.hp >= 1 || pMember3.hp >= 1 || pMember4.hp >= 1) {
+		pTurn1();
+	} else {
+		alert('YOU LOSE!');
+	}
+};
 
-$(".player_action_selector button").on( "click", function() {
-		var moveType = $(this).attr('class');
-		if (moveType === "attack") {
-			pMember1.fight();
-		} else if (moveType === "special") {
-			if (pMember1.sp >= pMember1.sMCost) {
-				pMember1.specialMove();	
-			} else {
-				alert("Not enough SP!");
+
+function pTurn1() {
+	// console.log('hi');
+	if (pMember1.hp >= 1) {
+		$(".whoseTurn").append("Do something " + pMember1.name + "!");
+		$(".player_action_selector button").on( "click", function() {
+			var moveType = $(this).attr('class');
+			if (moveType === "attack") {
+				pMember1.fight();
+				$(".player_action_selector button").unbind("click");
+				$(".whoseTurn").empty();
+				pTurn2();
+			} else if (moveType === "special") {
+				if (pMember1.sp >= pMember1.sMCost) {
+					pMember1.specialMove();	
+					$(".player_action_selector button").unbind("click");
+					$(".whoseTurn").empty();
+					pTurn2();
+				} else {
+					alert("Not enough SP!");
+				}
 			}
-		}
-		// if ($(".player_action_selector button").hasClass('SM')) {
-		// 	pMember1.throwLiterOfCola();
-		// } else {
-			
-		// }
-		$(".player_action_selector button").unbind("click");
-		$(".whoseTurn").empty();
+			// if ($(".player_action_selector button").hasClass('SM')) {
+			// 	pMember1.throwLiterOfCola();
+			// } else {
+				
+			// }
+		});
+	} else {
+		pTurn2();
+	}
+};
+
+function pTurn2() {
+	// console.log('hi');
+	if (pMember2.hp >= 1) {
 		$(".whoseTurn").append("Do something " + pMember2.name + "!")
 		$(".player_action_selector button").on( "click", function() {
 			// pMember2.fight();
 			var moveType = $(this).attr('class');
 			if (moveType === "attack") {
 				pMember2.fight();
+				$(".player_action_selector button").unbind("click");
+				$(".whoseTurn").empty();
+				pTurn3();
 			} else if (moveType === "special") {
 				if (pMember2.sp >= pMember2.sMCost) {
 					pMember2.specialMove();	
+					$(".player_action_selector button").unbind("click");
+					$(".whoseTurn").empty();
+					pTurn3();
 				} else {
 					alert("Not enough SP!");
 				}
 			}
-			$(".player_action_selector button").unbind("click");
-			$(".whoseTurn").empty();
-			$(".whoseTurn").append("Do something " + pMember3.name + "!")
-			$(".player_action_selector button").on( "click", function() {
-					var moveType = $(this).attr('class');
-					if (moveType === "attack") {
-						pMember3.fight();
-					} else if (moveType === "special") {
-						if (pMember3.sp >= pMember3.sMCost) {
-							pMember3.specialMove();	
-						} else {
-							alert("Not enough SP!");
-						}
-					}
+		});
+	} else {
+		pTurn3();
+	}
+};
+
+function pTurn3() {
+	// console.log('hi');
+	if (pMember3.hp >= 1) {
+		$(".whoseTurn").append("Do something " + pMember3.name + "!")
+		$(".player_action_selector button").on( "click", function() {
+			var moveType = $(this).attr('class');
+			if (moveType === "attack") {
+				pMember3.fight();
+				$(".player_action_selector button").unbind("click");
+				$(".whoseTurn").empty();
+				pTurn4();
+			} else if (moveType === "special") {
+				if (pMember3.sp >= pMember3.sMCost) {
+					pMember3.specialMove();
 					$(".player_action_selector button").unbind("click");
 					$(".whoseTurn").empty();
-					$(".whoseTurn").append("Do something " + pMember4.name + "!")
-					$(".player_action_selector button").on( "click", function() {
-						var moveType = $(this).attr('class');
-						if (moveType === "attack") {
-							pMember4.fight();
-						} else if (moveType === "special") {
-							if (pMember4.sp >= pMember4.sMCost) {
-								pMember4.specialMove();	
-							} else {
-								alert("Not enough SP!");
-							}
-						}
-						$(".player_action_selector button").unbind("click");
-						alert("End user's turn");
-						$(".whoseTurn").empty();
-						$(".whoseTurn").append("Get off me")
-						appendEnemies();
-						enemyTurn();
-					});	
-			});
-		});		
+					pTurn4();	
+				} else {
+					alert("Not enough SP!");
+				}
+			}
+		});
+	} else {
+		pTurn4();
+	}
+};
 
-});
-
+function pTurn4() {
+	// console.log('hi');
+	if (pMember4.hp >= 1) {
+		$(".whoseTurn").append("Do something " + pMember4.name + "!")
+		$(".player_action_selector button").on( "click", function() {
+			var moveType = $(this).attr('class');
+			if (moveType === "attack") {
+				pMember4.fight();
+				$(".player_action_selector button").unbind("click");
+				endPTurn();
+			} else if (moveType === "special") {
+				if (pMember4.sp >= pMember4.sMCost) {
+					pMember4.specialMove();
+					$(".player_action_selector button").unbind("click");
+					endPTurn();	
+				} else {
+					alert("Not enough SP!");
+				}
+			}
+		});
+	} else {
+		endPTurn();
+	}
 };
 
 
-resetPCommandMenu();
+function endPTurn() {
+	alert("End user's turn");
+	$(".whoseTurn").empty();
+	$(".whoseTurn").append("Enemy Turn - Watch Out!");
+	appendEnemies();
+	enemyTurn();
+};
+
+
+	
+
+
+
+// resetPCommandMenu();
 
 alert('Please select a player type and enter a name for each of your four party members in the top right quadrant of the screen.');
+
+
+
 
 /*
 	if (enemyTarget = 1) {
