@@ -205,9 +205,9 @@ GordonGekko.prototype.specialMove = function() {
 	if (target.hp <= 0) {
 		target.status = "dead";
 		console.log(target.status);
-		(alert(this.name + " stands demeaningly over " + target.kat + " and makes it rain thousands of $1 bills all over her. Papercuts cause " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
+		(alert(this.name + " stands demeaningly over " + target.kat + " and makes it rain thousands of $1 bills. Papercuts cause " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
 	} else {
-		(alert(this.name + " stands demeaningly over " + target.kat + " and makes it rain thousands of $1 bills all over her. Papercuts cause " + damage + " damage."));
+		(alert(this.name + " stands demeaningly over " + target.kat + " and makes it rain thousands of $1 bills. Papercuts cause " + damage + " damage."));
 	}
 };
 
@@ -275,9 +275,9 @@ DonaldTrump.prototype.specialMove = function() {
 	if (target.hp <= 0) {
 		target.status = "dead";
 		console.log(target.status);
-		(alert(this.name + " looks " + target.kat + " dead in the eye in declares 'You're Fired!', scarring her psychologically to the tune of " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
+		(alert(this.name + " looks " + target.kat + " dead in the eye and declares 'You're Fired!', scarring her psychologically to the tune of " + damage + " damage. She looks dead enough. You should probably focus on someone else..."));
 	} else {
-		(alert(this.name + " looks " + target.kat + " dead in the eye in declares 'You're Fired!', scarring her psychologically to the tune of " + damage + " damage."));
+		(alert(this.name + " looks " + target.kat + " dead in the eye and declares 'You're Fired!', scarring her psychologically to the tune of " + damage + " damage."));
 	}
 };
 

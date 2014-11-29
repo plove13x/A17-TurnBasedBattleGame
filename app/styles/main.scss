@@ -31,7 +31,7 @@ body {
   background-size: cover;   // contain;
   width: 100%;
   height: 300px;        /* Changed from 500px since I didn't understand contain above */
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
  .enemies_area {
@@ -68,7 +68,7 @@ body {
   .battle_info {
     // outline: 1px dashed red;
     width: 100%;
-    height: 270px;
+    min-height: 300px;
     position: relative;
   }
 
@@ -77,11 +77,13 @@ body {
     font-size: 0.8em;
     width: 35%;
     background-color: red;
-    height: 100%
+    // height: 100%;
+    min-height: 300px;
   }
 
   .enemy_stats p {
     padding: 1em 0 0 1em;
+    margin-top: 0;
   }
 
   .player_action_selector {
@@ -101,6 +103,10 @@ body {
       height: 20%;
       color: black;
     }
+
+    p {
+      margin-top: 5em;
+    }
   }
 
   .player_stats {
@@ -113,6 +119,10 @@ body {
     right: 0;
     text-align: right;
     padding-right: 10px;
+
+    p {
+      margin: 2em 0;
+    }
   }
 
 
